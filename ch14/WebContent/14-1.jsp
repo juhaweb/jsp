@@ -7,7 +7,8 @@
 </head>
 <body>
 	<h1>14-1.JDBC 프로그래밍</h1>
-	<h3>직원등록</h3>
+	<hr>
+	<h1>직원등록</h1>
 	<form action="./14-2.jsp" method="get">
 		<table border="1">
 		<tr>

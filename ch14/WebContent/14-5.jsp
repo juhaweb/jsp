@@ -57,7 +57,7 @@
 	<title>14-5.직원수정</title>
 </head>
 <body>
-	<h1>14-5.직원수정</h1>
+	<h1>직원수정</h1>
 	<form action="./14-6.jsp" method="get">
 		<table border="1">
 		<tr>
