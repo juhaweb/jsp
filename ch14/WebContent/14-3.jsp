@@ -57,6 +57,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>14-3. 직원목록</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+	
+	$(document).ready(function(){
+		
+		// 수정 클릭
+				
+		// 삭제 클릭
+		$('.delete').click(function(){
+			
+			var result = confirm("삭제하시겠습니까?");
+			if(result){
+				// a태그의 링크이동을 실행 한다 .
+				return true;
+			}else{
+				// a태그의 링크이동을 실행 안한다. 
+				return false;
+			}
+			
+		});
+		
+		
+	});
+	
+	
+	</script>
 </head>
 <body>
 	<h1>직원목록</h1>
@@ -87,8 +113,8 @@
 			<td><%= mb.getDep() %></td>
 			<td><%= mb.getRdate().substring(2,10) %></td>
 			<td>
-				<a href="#">수정</a>
-				<a href="./14-4.jsp" alt="삭제하기">삭제</a>
+				<a class="modify" href="./14-5.jsp?uid=<%= mb.getUid() %>" alt="수정하기">수정</a>
+				<a class="delete" href="./14-4.jsp?uid=<%= mb.getUid() %>" alt="삭제하기">삭제</a>
 			</td>
 		</tr>
 		
