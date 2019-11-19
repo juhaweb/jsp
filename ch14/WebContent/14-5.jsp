@@ -101,7 +101,10 @@
 			<td><input type="date" name="rdate" readonly="readonly" value="<%= mb.getRdate().substring(0,10) %>"></td>
 		</tr>
 		<tr>
-			<th colspan="2"><input type="submit" value="수정하기"></th>
+			<th colspan="2">
+			<input type="submit" value="수정하기">
+			<input type="button" value="뒤로가기" onclick="history.back(-1);">
+			</th>
 		</tr>				
 		</table>
 	</form>

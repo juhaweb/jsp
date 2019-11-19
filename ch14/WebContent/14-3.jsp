@@ -122,9 +122,8 @@
 		
 	</table>
 	
-
-	
-	<a href="./14-1.jsp" alt="등록하기"> 등록하기 </a>
+	<hr>
+	<input type="button" value="등록하기" onclick="location.href='./14-1.jsp'">
 	
 	
 </body>

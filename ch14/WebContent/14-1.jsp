@@ -52,7 +52,10 @@
 			<td><input type="date" name="rdate"></td>
 		</tr>
 		<tr>
-			<th colspan="2"><input type="submit" value="등록하기"></th>
+			<th colspan="2">
+			<input type="submit" value="등록하기">
+			<input type="button" value="뒤로가기" onclick="history.back(-1);">
+			</th>
 		</tr>				
 		</table>
 	</form>
