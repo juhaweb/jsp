@@ -19,9 +19,6 @@ $(document).ready(function(){
 		var pass1 = $('input[name=pass1]');
 		var pass2 = $('input[name=pass2]');										
 		
-		// 아이디 중복 확인
-		if(false)return false;
-		
 		// 아이디가 최소 4자이상 한글, 특수문자 포함여부
 		if(regId.test(uid.val()) == false){
 			alert('아이디는 영어 소문자, 숫자로 최소 4자 이상이어야 합니다.');
@@ -43,17 +40,7 @@ $(document).ready(function(){
 			name.val('').focus();
 			return false;
 		}
-		
-		// 별명 중복 확인
-		if(false)return false;
-		
-		// 이메일 중복 확인
-		if(false)return false;
-		
-		// 휴대폰 중복 확인
-		if(false)return false;
-		
-		
+				
 		return true;
 	});
 	

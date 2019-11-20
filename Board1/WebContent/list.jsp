@@ -41,7 +41,7 @@
 				<a href="#" class="next">다음</a>
 				</span>
 			</nav>
-			<a href="#" class="btnWrite">글쓰기</a>
+			<a href="/Board1/write.jsp" class="btnWrite">글쓰기</a>
 		</div>
 	</body>
 
