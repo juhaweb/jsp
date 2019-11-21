@@ -17,7 +17,7 @@
 	<body>
 		<div id="member">
 			<section class="register">
-				<form id="regForm" action="/Board1/user/registerProc.jsp" method="POST">
+				<form id="regForm" action="/Board1/proc/registerProc.jsp" method="POST">
 					<section>
 						<table>
 							<caption>사이트 이용정보 입력</caption>

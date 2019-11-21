@@ -27,6 +27,14 @@ public class SQL {
 	   
 	   
 	// 게시물관련	
+	public static final String SELECT_ARTICLE_LIST = "SELECT a.*, b.nick FROM `BOARD_ARTICLE` AS a "
+												   + "JOIN `BOARD_MEMBER` AS b "
+												   + "ON a.uid = b.uid "
+												   + "ORDER BY seq DESC";
+	
+	public static final String SELECT_ARTICLE_VIEW = "SELECT * FROM `BOARD_ARTICLE` WHERE `seq`=?";
+	public static final String UPDATE_ARTICLE_HIT = "UPDATE `BOARD_ARTICLE` SET `hit`=`hit`+1 WHERE `seq`=?;";
+		
 	public static final String INSERT_ARTICLE = "INSERT INTO `BOARD_ARTICLE` SET "
 										      + "`parent`=?,"
 										      + "`cate`=?,"
@@ -37,5 +45,11 @@ public class SQL {
 										      + "`regip`=?,"
 										      + "`rdate`=NOW();";
 
+	public static final String INSERT_COMMENT = "INSERT INTO `BOARD_ARTICLE` SET "
+											  + "`parent`=?, "
+											  + "`content`=?, "
+											  + "`uid`=?, "
+											  + "`regip`=?, "
+											  + "`rdate`=NOW()"; 
 	
 }
