@@ -16,6 +16,8 @@
 		return;		// 여기까지 프로그램 실행 (지연실행)
 	}
 
+	request.setCharacterEncoding("UTF-8");
+	String pg = request.getParameter("pg");
 	String seq = request.getParameter("seq");
 	
 	// 1단계, 2단계
@@ -131,7 +133,7 @@
 					<div class="btns">
 						<a href="./proc/deleteProc.jsp?seq=<%= seq %>" class="cancel del">삭제</a>
 						<a href="./modify.jsp?seq=<%= seq %>" class="cancel mod">수정</a>
-						<a href="./list.jsp" class="cancel">목록</a>
+						<a href="./list.jsp?pg=<%= pg %>" class="cancel">목록</a>
 					</div>
 				</form>
 			</div>
@@ -186,6 +188,8 @@
 					var comments = $('section.comments');
 					
 					// 전송할 데이터 수집
+					var seq 	 = $('.comment_write input[name=seq]').val();
+					var comment  = $('.comment_write textarea').val();
 					var input 	 = $('.comment_write input[name=seq]');
 					var textarea = $('.comment_write textarea');
 					
@@ -208,6 +212,7 @@
 						dataType : 'json',
 						success : function(data){
 							
+							alert(data.result);
 							textarea.val(''); 	// 벨류값 초기화
 							
 						}						

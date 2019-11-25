@@ -26,12 +26,16 @@ public class SQL {
 	public static final String SELECT_CHECK_HP = "SELECT COUNT(*) FROM `BOARD_MEMBER` WHERE `hp=? ";
 	   
 	   
-	// 게시물관련	
+	// 게시물관련
+	
+	public static final String SELECT_ARTICLE_TOTAL = "SELECT COUNT(*) FROM `BOARD_ARTICLE` WHERE `parent`=0";
+	
 	public static final String SELECT_ARTICLE_LIST = "SELECT a.*, b.nick FROM `BOARD_ARTICLE` AS a "
 												   + "JOIN `BOARD_MEMBER` AS b "
 												   + "ON a.uid = b.uid "
 												   + "WHERE a.parent = 0 "
-												   + "ORDER BY seq DESC";
+												   + "ORDER BY seq DESC "
+												   + "LIMIT ?, 10";
 	
 	public static final String SELECT_ARTICLE_VIEW = "SELECT * FROM `BOARD_ARTICLE` WHERE `seq`=?";
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `BOARD_ARTICLE` SET `hit`=`hit`+1 WHERE `seq`=?;";
