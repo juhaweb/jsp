@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.board1.config.SQL"%>
 <%@page import="kr.co.board1.bean.BoardArticleBean"%>
 <%@page import="java.sql.ResultSet"%>
@@ -29,8 +31,12 @@
 		PreparedStatement psmtHit = conn.prepareStatement(SQL.UPDATE_ARTICLE_HIT);
 		psmtHit.setString(1, seq);
 		
+		PreparedStatement psmtComment = conn.prepareStatement(SQL.SELECT_COMMENT_LIST);
+		psmtComment.setString(1, seq);
+		
 		// 4단계
 		ResultSet rs = psmtView.executeQuery();
+		ResultSet rsComment = psmtComment.executeQuery();
 		psmtHit.executeUpdate();
 	
 	// 트랜잭션 끝 (실행)  ---> 3, 4단계 작업을 1개로 걸어버림.   
@@ -55,14 +61,33 @@
 
 	}
 	
+	List<BoardArticleBean> commentList = new ArrayList<>();
+	while(rsComment.next()){
+		
+		BoardArticleBean comment = new BoardArticleBean(); 
+		comment.setSeq(rsComment.getInt(1));
+		comment.setParent(rsComment.getInt(2));
+		comment.setComment(rsComment.getInt(3));
+		comment.setCate(rsComment.getString(4));
+		comment.setTitle(rsComment.getString(5));
+		comment.setContent(rsComment.getString(6));
+		comment.setFile(rsComment.getInt(7));
+		comment.setHit(rsComment.getInt(8));
+		comment.setUid(rsComment.getString(9));
+		comment.setRegip(rsComment.getString(10));
+		comment.setRdate(rsComment.getString(11));
+		
+		commentList.add(comment);
+	
+	}
+		
 	// 6단계
 	rs.close();
+	rsComment.close();
 	psmtView.close();
 	psmtHit.close();
 	conn.close();
 	
-
-
 
 %>
 <!DOCTYPE html>
@@ -71,6 +96,9 @@
 		<meta charset="UTF-8" />
 		<title>글보기</title> 
 		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	</head>
 	<body>
 		<div id="board">
@@ -101,33 +129,37 @@
 						</tr>
 					</table>
 					<div class="btns">
-						<a href="#" class="cancel del">삭제</a>
-						<a href="#" class="cancel mod">수정</a>
+						<a href="./proc/deleteProc.jsp?seq=<%= seq %>" class="cancel del">삭제</a>
+						<a href="./modify.jsp?seq=<%= seq %>" class="cancel mod">수정</a>
 						<a href="./list.jsp" class="cancel">목록</a>
 					</div>
 				</form>
-			</div><!-- view 끝 -->
+			</div>
+			<!-- view 끝 -->
 			
 			<!-- 댓글리스트 -->
 			<section class="comments">
 				<h3>댓글목록</h3>
-				<!--  댓글이 없어서 주석
+				
+				<% for(BoardArticleBean comment : commentList){ %>
 				<div class="comment">
 					<span>
-						<span>홍길동</span>
-						<span>18-03-01</span>
+						<span><%=comment.getUid() %></span>
+						<span><%=comment.getRdate().substring(2,10)%></span>
 					</span>
-					<textarea>테스트 댓글입니다.</textarea>
+					<textarea><%=comment.getContent() %></textarea>
 					<div>
 						<a href="#" class="del">삭제</a>
 						<a href="#" class="mod">수정</a>
 					</div>
 				</div>
-				 -->
+				<% } %>
 				 
+				<% if(commentList.size() == 0){ %>
 				<p class="empty">
 					등록된 댓글이 없습니다.
 				</p>
+				<% }%>
 				
 			</section>
 			
@@ -135,7 +167,7 @@
 			<section class="comment_write">
 				<h3>댓글쓰기</h3>
 				<div>
-					<form action="./proc/commentProc.jsp" method="post">
+					<form action="/Board1/proc/commentProc.jsp" method="post">
 						<input type="hidden" name="seq" value="<%= bab.getSeq()%>" />
 						<textarea name="comment" rows="5"></textarea>
 						<div class="btns">
@@ -144,7 +176,48 @@
 						</div>
 					</form>
 				</div>
-			</section>
+ 			<script>
+ 			
+ 			$(function(){
+				$('.comment_write input[type=submit]').click(function(e){
+					e.preventDefault();				// 기본동작 막는거임. submit을 차단.  = return false;
+					
+					// 태그객체 생성
+					var comments = $('section.comments');
+					
+					// 전송할 데이터 수집
+					var input 	 = $('.comment_write input[name=seq]');
+					var textarea = $('.comment_write textarea');
+					
+					var seq 	 = $input.val();
+					var comment  = $textarea.val();
+					
+					
+					// 데이터 유효성 검사 
+					if(comment == ''){
+						alert('댓글을 입력하세요.');
+						return;
+					}				
+					
+					var json = {"seq":seq, "comment":comment};
+					
+					$.ajax({
+						url : '/Board1/proc/commentProc.jsp',	// commentProc으로 json data 전송, 
+						type : 'post',
+						data : json,
+						dataType : 'json',
+						success : function(data){
+							
+							textarea.val(''); 	// 벨류값 초기화
+							
+						}						
+					});
+				});
+			});
+			
+			
+			
+			</script>
 		</div><!-- board 끝 -->
 	</body>
 

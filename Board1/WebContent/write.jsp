@@ -11,7 +11,7 @@
 			<h2>글쓰기</h2>
 			<div class="write">
 			
-				<form action="./writeProc.jsp" method="post">
+				<form action="/Board1/proc/writeProc.jsp" method="post">
 				
 					<table>
 						<tr>

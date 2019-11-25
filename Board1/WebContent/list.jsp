@@ -48,6 +48,9 @@
 		articleList.add(bab);
 	}
 	
+	// parent 갯수 -> comment 업데이트
+	
+	
 	// 6단계
 	rs.close();
 	psmt.close();

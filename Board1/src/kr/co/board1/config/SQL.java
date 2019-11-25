@@ -17,7 +17,7 @@ public class SQL {
 								  + "`addr2`=?,"
 								  + "`regip`=?,"
 								  + "`rdate`=NOW();";
-	   
+	
 	public static final String SELECT_TERMS = "SELECT * FROM `BOARD_TERMS`;";
      
 	public static final String SELECT_CHECK_UID = "SELECT COUNT(*) FROM `BOARD_MEMBER` WHERE `uid=? ";
@@ -30,11 +30,12 @@ public class SQL {
 	public static final String SELECT_ARTICLE_LIST = "SELECT a.*, b.nick FROM `BOARD_ARTICLE` AS a "
 												   + "JOIN `BOARD_MEMBER` AS b "
 												   + "ON a.uid = b.uid "
+												   + "WHERE a.parent = 0 "
 												   + "ORDER BY seq DESC";
 	
 	public static final String SELECT_ARTICLE_VIEW = "SELECT * FROM `BOARD_ARTICLE` WHERE `seq`=?";
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `BOARD_ARTICLE` SET `hit`=`hit`+1 WHERE `seq`=?;";
-		
+	
 	public static final String INSERT_ARTICLE = "INSERT INTO `BOARD_ARTICLE` SET "
 										      + "`parent`=?,"
 										      + "`cate`=?,"
@@ -45,11 +46,24 @@ public class SQL {
 										      + "`regip`=?,"
 										      + "`rdate`=NOW();";
 
+	public static final String UPDATE_MODIFY_ARTICLE = "UPDATE `BOARD_ARTICLE` SET `title`=?, `content`=? WHERE `seq`=?";
+	public static final String UPDATE_ARTICLE_DELETE = "DELETE FROM `BOARD_ARTICLE` WHERE `seq`=? ";
+
+	
+	public static final String SELECT_COMMENT_LIST = "SELECT * FROM `BOARD_ARTICLE` WHERE `parent`=?";
 	public static final String INSERT_COMMENT = "INSERT INTO `BOARD_ARTICLE` SET "
 											  + "`parent`=?, "
 											  + "`content`=?, "
 											  + "`uid`=?, "
 											  + "`regip`=?, "
 											  + "`rdate`=NOW()"; 
+	
+	public static final String UPDATE_COMMENT_COUNT  = "UPDATE `BOARD_ARTICLE` SET `comment`=`comment`+1 WHERE `seq`=?";
+	
+	
+	
+	
+	
+	
 	
 }
