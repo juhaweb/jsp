@@ -9,6 +9,7 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	String seq = request.getParameter("seq");
+	
 	// 1, 2단계
 	Connection conn = DBconfig.getconnection();
 		

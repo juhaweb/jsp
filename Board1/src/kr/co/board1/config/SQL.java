@@ -37,8 +37,13 @@ public class SQL {
 												   + "ORDER BY seq DESC "
 												   + "LIMIT ?, 10";
 	
-	public static final String SELECT_ARTICLE_VIEW = "SELECT * FROM `BOARD_ARTICLE` WHERE `seq`=?";
-	public static final String UPDATE_ARTICLE_HIT = "UPDATE `BOARD_ARTICLE` SET `hit`=`hit`+1 WHERE `seq`=?;";
+	// public static final String SELECT_ARTICLE_VIEW = "SELECT * FROM `BOARD_ARTICLE` WHERE `seq`=?";
+	public static final String SELECT_ARTICLE_VIEW = "SELECT * FROM `BOARD_ARTICLE` AS a "
+													+ "LEFT JOIN `BOARD_FILE` AS b "
+													+ "ON a.seq = b.parent "
+													+ "WHERE a.seq=? ";
+			
+	public static final String UPDATE_ARTICLE_HIT = "UPDATE `BOARD_ARTICLE` SET `hit`=`hit`+1 WHERE `seq`=?; ";
 	
 	public static final String INSERT_ARTICLE = "INSERT INTO `BOARD_ARTICLE` SET "
 										      + "`parent`=?,"
@@ -49,6 +54,19 @@ public class SQL {
 										      + "`uid`=?,"
 										      + "`regip`=?,"
 										      + "`rdate`=NOW();";
+	
+	public static final String SELECT_MAX_SEQ = "SELECT MAX(seq) FROM `BOARD_ARTICLE`";
+	
+	public static final String SELECT_FILE = "SELECT * FROM `BOARD_FILE` WHERE `parent`=?";
+	
+	public static final String UPDATE_FILE_COUNT = "UPDATE `BOARD_FILE` SET `download`=`download`+1 WHERE `parent`=?";	
+	
+	public static final String INSERT_FILE = "INSERT INTO `BOARD_FILE` SET "
+											+ "`parent`=?, "
+											+ "`oldName`=?, "
+											+ "`newName`=?, "
+											+ "`rdate`=NOW()";
+	public static final String DELETE_FILE = "DELETE FROM `BOARD_FILE` WHERE `parent`=? ";
 
 	public static final String UPDATE_MODIFY_ARTICLE = "UPDATE `BOARD_ARTICLE` SET `title`=?, `content`=? WHERE `seq`=?";
 	public static final String UPDATE_ARTICLE_DELETE = "DELETE FROM `BOARD_ARTICLE` WHERE `seq`=? ";

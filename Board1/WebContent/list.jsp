@@ -156,7 +156,7 @@
 				<% } %>
 				
 			</nav>
-			<a href="/Board1/write.jsp" class="btnWrite">글쓰기</a>
+			<a href="/Board1/write.jsp?pg=<%= pg %>" class="btnWrite">글쓰기</a>
 		</div>
 	</body>
 

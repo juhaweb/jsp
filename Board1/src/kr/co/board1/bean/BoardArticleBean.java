@@ -13,19 +13,42 @@ public class BoardArticleBean {
 	private String uid;
 	private String regip;
 	private String rdate;
+		
+
+	// 파일 첨부 관련 추가 191126
+	private String oldName;
+	private String newName;
+	private int download;
 	
-	// 닉네임 불러오기 (추가필드)
-	private String Nick;
-	
-	public String getNick() {
-		return Nick;
+	public String getOldName() {
+		return oldName;
 	}
-	public void setNick(String nick) {
-		Nick = nick;
+	public void setOldName(String oldName) {
+		this.oldName = oldName;
 	}
+	public String getNewName() {
+		return newName;
+	}
+	public void setNewName(String newName) {
+		this.newName = newName;
+	}
+	public int getDownload() {
+		return download;
+	}
+	public void setDownload(int download) {
+		this.download = download;
+	}
+
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	// 기존 get set 
 	public int getSeq() {
 		return seq;
 	}
@@ -91,6 +114,17 @@ public class BoardArticleBean {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	
+	
+	// 닉네임 불러오기 (추가필드)
+	private String Nick;
+	
+	public String getNick() {
+		return Nick;
+	}
+	public void setNick(String nick) {
+		Nick = nick;
 	}
 	
 	
