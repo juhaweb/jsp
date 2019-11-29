@@ -14,7 +14,6 @@
 	/*
 	BoardMemberBean bmb = (BoardMemberBean) session.getAttribute("member");
 
-	
 	// 로그인을 안했을 경우 로그인페이지로 이동. 
 	if (bmb==null){
 		response.sendRedirect("/farmstory/user/login.jsp");
@@ -22,16 +21,20 @@
 	};
 	
 	*/
+	
 	request.setCharacterEncoding("UTF-8");
 	
+	String group = request.getParameter("group");
 	String cate = request.getParameter("cate");
+
 	String pg = request.getParameter("pg");
 
 	if(pg ==null) {
 		pg = "1";
 	};
 	
-	// 페이지 관련
+	
+	// 페이지 관련 변수 선언
 	int total		= 0;
 	int lastPage	= 0; 
 	int listCount	= 0;
@@ -51,11 +54,13 @@
 	psmt.setString(1, cate );
 	psmt.setInt(2, limitBegin );
 	
-	Statement stmt = conn.createStatement();
+	
+	PreparedStatement psmtTotal = conn.prepareStatement(SQL.SELECT_ARTICLE_TOTAL);
+	psmtTotal.setString(1,cate);
 	
 	// 4단계
 	ResultSet rs = psmt.executeQuery();
-	ResultSet rsTotal = stmt.executeQuery(SQL.SELECT_ARTICLE_TOTAL);
+	ResultSet rsTotal = psmtTotal.executeQuery();
 	
 	// 5단계
 	if(rsTotal.next()){
@@ -103,30 +108,18 @@
 	// 6단계
 	rs.close();
 	psmt.close();
-	stmt.close();
 	conn.close();
 	
+	String asideView = "./_aside_"+group+".jsp";
 	
 %>
-<%@ include file="../_header.jsp" %>
-<section class="sub cate3">
-    <div><img src="/farmstory/img/sub_top_tit1.png"/></div>
-    <div>
-        <aside class="lnb">  <!-- lnb : local navigation bar -->
-            <img src="/farmstory/img/sub_aside_cate3_tit.png" alt="농작물이야기">
-            <ul>
-                <li class="on"><a href="/farmstory/board/list.jsp?cate=story">농작물이야기</a></li> 
-                <li><a href="/farmstory/board/list.jsp?cate=grow">텃밭가꾸기</a></li>
-                <li><a href="/farmstory/board/list.jsp?cate=school">귀농학교</a></li>
-            </ul>
-        </aside>
-        <article class="contents">
-            <nav>
-                <img src="/farmstory/img/sub_nav_tit_cate3_tit1.png" alt="농작물이야기">
-                <p>HOME > 농작물이야기 > <span>농작물이야기 </span></p>
-            </nav>
-            <!-- 컨텐츠 내용시작 -->
 
+<%@ include file="../_header.jsp" %>
+<jsp:include page="<%= asideView %>">
+	<jsp:param value="<%= cate %>" name="cate"/>
+</jsp:include>
+
+            <!-- 컨텐츠 내용시작 -->
 
 			<div id="board">
 				<!-- 리스트 -->
@@ -171,10 +164,12 @@
 					<% } %>
 					
 				</nav>
-				<a href="/farmstory/board/write.jsp?cate=<%= cate %>" class="btnWrite">글쓰기</a>
+				<a href="/farmstory/board/write.jsp?group=<%= group %>&cate=<%= cate %>" class="btnWrite">글쓰기</a>
 			</div>
 
 		<!-- 컨텐츠 내용끗 -->
+		
+		
         </article>
     </ul>
 </section>

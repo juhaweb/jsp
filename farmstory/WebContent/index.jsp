@@ -1,4 +1,69 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.co.farmstory.bean.BoardArticleBean"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="kr.co.farmstory.config.SQL"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="kr.co.farmstory.config.DBconfig"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	// 1,2단계
+	Connection conn = DBconfig.getconnection();
+	
+	// 3단계 
+	PreparedStatement psmt1 = conn.prepareStatement(SQL.SELECT_LATEST_BOARD);
+	psmt1.setString(1, "grow");
+	PreparedStatement psmt2 = conn.prepareStatement(SQL.SELECT_LATEST_BOARD);
+	psmt2.setString(1, "school");
+	PreparedStatement psmt3 = conn.prepareStatement(SQL.SELECT_LATEST_BOARD);
+	psmt3.setString(1, "story");
+	
+	// 4단계
+	ResultSet rs1 = psmt1.executeQuery();
+	ResultSet rs2 = psmt2.executeQuery();
+	ResultSet rs3 = psmt3.executeQuery();
+	
+	// 5단계 
+	List<BoardArticleBean> latest1 = new ArrayList<>();
+	List<BoardArticleBean> latest2 = new ArrayList<>();
+	List<BoardArticleBean> latest3 = new ArrayList<>();
+	
+	while(rs1.next()){
+		BoardArticleBean bab = new BoardArticleBean();
+		bab.setSeq(rs1.getInt(1));
+		bab.setTitle(rs1.getString(2));
+		bab.setRdate(rs1.getString(3));
+		latest1.add(bab);
+	}
+	
+	while(rs2.next()){
+		BoardArticleBean bab = new BoardArticleBean();
+		bab.setSeq(rs2.getInt(1));
+		bab.setTitle(rs2.getString(2));
+		bab.setRdate(rs2.getString(3));
+		latest2.add(bab);
+	}
+	
+	while(rs3.next()){
+		BoardArticleBean bab = new BoardArticleBean();
+		bab.setSeq(rs3.getInt(1));
+		bab.setTitle(rs3.getString(2));
+		bab.setRdate(rs3.getString(3));
+		latest3.add(bab);
+	}
+	
+	
+	// 6단계
+	rs3.close();
+	rs2.close();
+	rs1.close();
+	psmt3.close();
+	psmt2.close();
+	psmt1.close();
+	conn.close();
+	
+ %>
 <%@ include file="./_header.jsp" %>
 <main>
     
@@ -28,33 +93,39 @@
             <img src="/farmstory/img/main_latest1_tit.png" alt="텃밭 가꾸기">
             <img src="/farmstory/img/main_latest1_img.jpg" alt="이미지">
             <table>
-                <tr><td>></td> <td>쑥쑥 자라는 고추</td><td>10-22</td></tr>
-                <tr><td>></td> <td>여성에게 정말 좋은 가지</td><td>10-22</td></tr>
-                <tr><td>></td> <td>알이 굵은 감자를 키워보자</td><td>10-22</td></tr>
-                <tr><td>></td> <td>농약 걱정 없이 먹는 쌈채소</td><td>10-22</td></tr>
-                <tr><td>></td> <td>토마토! 건강하게 길러서 안심을가지고 </td><td>10-22</td></tr>
+                <% for(BoardArticleBean bab : latest1) { %>
+                	<tr>
+                	<td>></td> 
+                	<td><a href="/farmstory/board/view.jsp?seq=<%= bab.getSeq() %>"><%= bab.getTitle() %></a></td>
+                	<td><%= bab.getRdate().substring(2,10) %></td>
+                	</tr>
+                <% } %>
             </table>
         </article>
         <article>
             <img src="/farmstory/img/main_latest2_tit.png" alt="귀농학교">
             <img src="/farmstory/img/main_latest2_img.jpg" alt="이미지">
             <table>
-                <tr><td>></td> <td>쑥쑥 자라는 고추</td><td>10-22</td></tr>
-                <tr><td>></td> <td>여성에게 정말 좋은 가지</td><td>10-22</td></tr>
-                <tr><td>></td> <td>알이 굵은 감자를 키워보자</td><td>10-22</td></tr>
-                <tr><td>></td> <td>농약 걱정 없이 먹는 쌈채소</td><td>10-22</td></tr>
-                <tr><td>></td> <td>토마토! 건강하게 길러서 안심을가지고 </td><td>10-22</td></tr>
+                <% for(BoardArticleBean bab : latest2) { %>
+                	<tr>
+                	<td>></td> 
+                	<td><a href="/farmstory/board/view.jsp?seq=<%= bab.getSeq() %>"><%= bab.getTitle() %></a></td>
+                	<td><%= bab.getRdate().substring(2,10) %></td>
+                	</tr>
+                <% } %>
             </table>
         </article>
         <article>
             <img src="/farmstory/img/main_latest3_tit.png" alt="농작물 이야기">
             <img src="/farmstory/img/main_latest3_img.jpg" alt="이미지">
             <table>
-                <tr><td>></td> <td>쑥쑥 자라는 고추</td><td>10-22</td></tr>
-                <tr><td>></td> <td>여성에게 정말 좋은 가지</td><td>10-22</td></tr>
-                <tr><td>></td> <td>알이 굵은 감자를 키워보자</td><td>10-22</td></tr>
-                <tr><td>></td> <td>농약 걱정 없이 먹는 쌈채소</td><td>10-22</td></tr>
-                <tr><td>></td> <td>토마토! 건강하게 길러서 안심을가지고 </td><td>10-22</td></tr>
+                <% for(BoardArticleBean bab : latest3) { %>
+                	<tr>
+                	<td>></td> 
+                	<td><a href="/farmstory/board/view.jsp?seq=<%= bab.getSeq() %>"><%= bab.getTitle() %></a></td>
+                	<td><%= bab.getRdate().substring(2,10) %></td>
+                	</tr>
+                <% } %>
             </table>
         </article>
     </div>

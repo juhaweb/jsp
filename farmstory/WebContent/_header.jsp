@@ -59,9 +59,11 @@
             <ul class="gnb">
                 <li><a href="/farmstory/introduction/hello.jsp">팜스토리소개</a></li>
                 <li><a href="/farmstory/market/market.jsp"><img src="/farmstory/img/head_menu_badge.png" alt="30%"> 장보기</a></li>
-                <li><a href="/farmstory/board/list.jsp?cate=story">농작물이야기</a></li>
-                <li><a href="/farmstory/event/event.jsp">이벤트</a></li>
-                <li><a href="/farmstory/community/notice.jsp">커뮤니티</a></li>
+                <li><a href="/farmstory/board/list.jsp?group=croptalk&cate=story">농작물이야기</a></li>
+                <li><a href="/farmstory/board/list.jsp?group=event&cate=event">이벤트</a></li>
+                <li><a href="/farmstory/board/list.jsp?group=community&cate=notice">커뮤니티</a></li>
             </ul>
             
         </header>
+        
+        

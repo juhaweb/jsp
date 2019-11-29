@@ -1,7 +1,7 @@
 package kr.co.farmstory.config;
 
 public class SQL {
-
+	
 	// 회원관련
 	public static final String SELECT_LOGIN = "SELECT * FROM `BOARD_MEMBER` WHERE `uid`=? AND `pass`=PASSWORD(?);";
 	
@@ -27,8 +27,9 @@ public class SQL {
 	   
 	   
 	// 게시물관련
+	public static final String SELECT_LATEST_BOARD = "SELECT `seq`,`title`,`rdate` FROM `BOARD_ARTICLE` WHERE `cate`=? ORDER BY `seq` desc LIMIT 5;";
 	
-	public static final String SELECT_ARTICLE_TOTAL = "SELECT COUNT(*) FROM `BOARD_ARTICLE` WHERE `parent`=0";
+	public static final String SELECT_ARTICLE_TOTAL = "SELECT COUNT(*) FROM `BOARD_ARTICLE` WHERE`parent`=0 AND `cate`=?";
 	
 	public static final String SELECT_ARTICLE_LIST = "SELECT a.*, b.nick FROM `BOARD_ARTICLE` AS a "
 												   + "JOIN `BOARD_MEMBER` AS b "

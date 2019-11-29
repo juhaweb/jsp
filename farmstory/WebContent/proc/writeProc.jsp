@@ -25,6 +25,7 @@
 	// multipart 폼데이터(첨부파일)을 전송받는 mr객체 생성하면서 파일저장 및 폼 데이터 수신 
 	MultipartRequest mr = new MultipartRequest(request,path,maxSize,"UTF-8",new DefaultFileRenamePolicy());
 	
+	String group = mr.getParameter("group");
 	String cate  = mr.getParameter("cate");
 	String title = mr.getParameter("subject");
 	String content = mr.getParameter("content");
@@ -124,7 +125,7 @@
 	}
 		
 	// 리스트 페이지 이동
-	response.sendRedirect("/farmstory/board/list.jsp?cate="+cate);
+	response.sendRedirect("/farmstory/board/list.jsp?group="+group+"&cate="+cate);
 
 	
 %>

@@ -9,16 +9,22 @@
 <%@page import="kr.co.farmstory.bean.BoardMemberBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	/*
 	BoardMemberBean bmb = (BoardMemberBean) session.getAttribute("member");
 	
-	// 로그인을 안했으면 로그인 페이지로 이동 
+	로그인을 안했으면 로그인 페이지로 이동 
 	if(bmb == null){
 		response.sendRedirect("./user/login.jsp");
 		return; // 여기까지만 프로그램 실행 (지연실행)
 	}
 	
+	*/
+	
 	request.setCharacterEncoding("UTF-8");
 	
+	String group = request.getParameter("group");
+	String cate = request.getParameter("cate");
+
 	String pg  = request.getParameter("pg");
 	String seq = request.getParameter("seq");
 
@@ -38,9 +44,13 @@
 	PreparedStatement psmtComment = conn.prepareStatement(SQL.SELECT_COMMENT_LIST);
 	psmtComment.setString(1, seq);
 	
+	PreparedStatement psmtTotal = conn.prepareStatement(SQL.SELECT_ARTICLE_TOTAL);
+	psmtTotal.setString(1,cate);
+	
 	// 4단계
 	ResultSet rs = psmtView.executeQuery();
 	ResultSet rsComment = psmtComment.executeQuery();
+	ResultSet rsTotal = psmtTotal.executeQuery();
 	psmtHit.executeUpdate();
 	
 	// 트랜잭션 끝 (실행)  ---> 3, 4단계 작업을 1개로 걸어버림.   
@@ -88,11 +98,22 @@
 	}
 	
 	// 6단계
+	
 	rs.close();
 	psmtView.close();
 	psmtHit.close();
 	conn.close();
+	
+	String asideView = "./_aside_"+group+".jsp";
+	
 %>
+
+<%@ include file="../_header.jsp" %>
+<jsp:include page="<%= asideView %>">
+	<jsp:param value="<%= cate %>" name="cate"/>
+</jsp:include>
+
+
 <!--  글보기  -->
 <div id="board">
 	<h3>글보기</h3>

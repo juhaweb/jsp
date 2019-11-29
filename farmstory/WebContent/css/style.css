@@ -72,7 +72,7 @@ main > div.latest > article > img:nth-child(2) {left:0px; bottom:25px;}
 main > div.latest > article > table {right:16px; bottom:23px; }
 main > div.latest > article > table tr > td:nth-child(1) {font-size:11px; color:#ccc; font-weight: 700;}
 main > div.latest > article > table tr > td:nth-child(2) {display:block; width:150px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; line-height: 18px;}
-main > div.latest > article > table tr > td:nth-last-child(1) {color:#ccc;font-size:11px;}
+main > div.latest > article > table tr > td:nth-last-child {color:#ccc;font-size:11px;}
 
 /* 메인 - 4. 고객센터 */
 main > div.info {height:144px;border-top:2px solid #ccc; padding:20px 0px;}  
@@ -117,7 +117,7 @@ main > div.info > article:nth-child(2) > ul > li:last-child {font-weight: 700; l
 .sub.cate3 .lnb > ul > li:nth-child(1).on {background-image:url(../img/sub_cate3_lnb1_ov.png);}
 .sub.cate3 .lnb > ul > li:nth-child(2) > a {background-image:url(../img/sub_cate3_lnb2.png);}
 .sub.cate3 .lnb > ul > li:nth-child(2) > a:hover {background-image:url(../img/sub_cate3_lnb2_ov.png);}
-.sub.cate3 .lnb > ul > li:nth-child(2).on {background-image:url(../img/sub_cate3_lnb2_ov.png);}
+.sub.cate3 .lnb > ul > li:nth-child(2).on {background-image:url(../iWmg/sub_cate3_lnb2_ov.png);}
 .sub.cate3 .lnb > ul > li:nth-child(3) > a {background-image:url(../img/sub_cate3_lnb3.png);}
 .sub.cate3 .lnb > ul > li:nth-child(3) > a:hover {background-image:url(../img/sub_cate3_lnb3_ov.png);}
 .sub.cate3 .lnb > ul > li:nth-child(3).on {background-image:url(../img/sub_cate3_lnb3_ov.png);}
