@@ -9,7 +9,7 @@ public class GreetingService implements CommonService{
 
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) {
-		return null;
+				return  "/greeting.jsp";
 	}
 
 }

@@ -9,7 +9,7 @@ public class HelloService implements CommonService{
 
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) {
-		return null;
+		return  "/hello.jsp";
 	}
 
 	

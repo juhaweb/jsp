@@ -9,4 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 서블릿(컨트롤러) 등록 -->
+   	<servlet>
+  		<servlet-name>MainContrlloser</servlet-name>
+  		<servlet-class>Controller.MainContrlloser</servlet-class>
+  	</servlet>
+  	<!--  서블릿 액션주소 설정 -->
+  	<servlet-mapping>
+  		<servlet-name>MainContrlloser</servlet-name>
+  		<url-pattern>*.do</url-pattern>
+  	</servlet-mapping>
+  
+  
+  
+  
 </web-app>

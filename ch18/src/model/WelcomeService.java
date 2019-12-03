@@ -9,7 +9,7 @@ public class WelcomeService implements CommonService {
 
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) {
-		return null;
+		return  "/Wellcom.jsp";
 	}
 
 }
