@@ -3,15 +3,17 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>loginResult</title>
 </head>
 <body>
-	<h1>hello</h1>
+	<h1>loginResult</h1>
 	<hr/>
-	<a href="./hello.do">hello.do</a>
-	<a href="./welcome.do">welcome.do</a>
-	<a href="./greeting.do">greeting.do</a>
-
+	로그인  결과
+	<p>
+		아 이 디 : ${uid}
+		비밀번호 : ${pass}
+	</p>
+	
 	
 </body>
 </html>
