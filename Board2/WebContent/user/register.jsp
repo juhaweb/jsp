@@ -1,23 +1,20 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>회원가입</title>
-		<link rel="stylesheet" href="/Board1/css/style.css" />
+		<link rel="stylesheet" href="/Board2/css/style.css" />
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-		<script src="/Board1/js/validation.js"></script>
-		<script src="/Board1/js/zipcode.js"></script>
-		<script src="/Board1/js/checkUid.js"></script>
-		
+		<script src="/Board2/js/zipcode.js"></script>
 	</head>
 	<body>
 		<div id="member">
 			<section class="register">
-				<form id="regForm" action="/Board1/proc/registerProc.jsp" method="POST">
+				<form id="regForm" action="/Board2/user/register.do" method="POST">
 					<section>
 						<table>
 							<caption>사이트 이용정보 입력</caption>
@@ -57,17 +54,11 @@
 							</tr>
 							<tr>
 								<td>EMAIL</td>
-								<td>
-									<input type="email" name="email" placeholder="이메일을 입력" 	required />
-									<span class="resultEmail"></span>
-								</td>
+								<td><input type="email" name="email" placeholder="이메일을 입력" 	required /></td>
 							</tr>
 							<tr>
 								<td>휴대폰</td>
-								<td>
-									<input type="text" name="hp" placeholder="-포함 13자리를 입력" maxlength="13" required />
-									<span class="resultHp"></span>
-								</td>
+								<td><input type="text" name="hp" placeholder="-포함 13자리를 입력" maxlength="13" required /></td>
 							</tr>
 							<tr>
 								<td>주소</td>
@@ -88,7 +79,7 @@
 			
 					</section>
 					<div>
-						<a href="/Board1/user/login.jsp" class="cancel">취소</a> 
+						<a href="#" class="cancel">취소</a> 
 						<input type="submit" class="join" value="회원가입" />
 					</div>
 				</form>
