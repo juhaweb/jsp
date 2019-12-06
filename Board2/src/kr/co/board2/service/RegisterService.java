@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.board2.config.DBConfig;
 import kr.co.board2.config.SQL;
 import kr.co.board2.controller.CommonService;
+import kr.co.board2.dao.UserDAO;
+import kr.co.board2.vo.BoardMemberVO;
 
 public class RegisterService implements CommonService {
 
@@ -28,30 +30,20 @@ public class RegisterService implements CommonService {
 			String addr2 = req.getParameter("addr2");
 			String regip = req.getRemoteAddr();
 
-			// 1단계, 2단계
-			Connection conn = DBConfig.getConnection();
+			BoardMemberVO bmv = new BoardMemberVO();
+			bmv.setUid(uid);
+			bmv.setPass(pass1);
+			bmv.setName(name);
+			bmv.setNick(nick);
+			bmv.setEmail(email);
+			bmv.setHp(hp);
+			bmv.setZip(zip);
+			bmv.setAddr1(addr1);
+			bmv.setAddr2(addr2);
+			bmv.setRegip(regip);
 			
-			//3단계
-			PreparedStatement psmt = conn.prepareStatement(SQL.INSERT_USER);
-			psmt.setString(1, uid);
-			psmt.setString(2, pass1);
-			psmt.setString(3, name);
-			psmt.setString(4, nick);
-			psmt.setString(5, email);
-			psmt.setString(6, hp);
-			psmt.setString(7, zip);
-			psmt.setString(8, addr1);
-			psmt.setString(9, addr2);
-			psmt.setString(10, regip);
-			
-			//4단계
-			psmt.executeUpdate();
-			
-			//5단계
-			
-			//6단계
-			psmt.close();
-			conn.close();
+			UserDAO dao = UserDAO.getInstance();
+			dao.insertUser(bmv);
 			
 			return "redirect:/Board2/user/login.do";
 			

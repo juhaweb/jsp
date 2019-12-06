@@ -12,7 +12,6 @@
 <%
 	
 	BoardMemberBean bmb = (BoardMemberBean) session.getAttribute("member");
-
 	// 로그인을 안했을 경우 로그인페이지로 이동. 
 	if (bmb==null){
 		response.sendRedirect("./user/login.jsp");
@@ -21,7 +20,6 @@
 	
 	request.setCharacterEncoding("UTF-8");
 	String pg = request.getParameter("pg");
-
 	if(pg ==null) {
 		pg = "1";
 	};
@@ -35,8 +33,6 @@
 	int groupCurrent = (int)Math.ceil(currentPg / 10.0);
 	int groupStart	= (groupCurrent-1) * 10 +1;
 	int groupEnd	= groupCurrent * 10;
-
-
 	// 1단계, 2단계
 	Connection conn = DBconfig.getconnection();
 	
@@ -108,14 +104,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>글목록</title> 
-		<link rel="stylesheet" href="/Board1/css/style.css" />
+		<link rel="stylesheet" href="/Board2/css/style.css" />
 	</head> 
 	<body>
 		<div id="board">
 			<h3>글목록</h3>
 			<!-- 리스트 -->
 			<div class="list">
-				<p class="logout"><%= bmb.getNick() %>님! 반갑습니다. <a href="/Board1/user/logout.jsp">[로그아웃]</a><p>
+				<p class="logout"><%= bmb.getNick() %>님! 반갑습니다. <a href="/Board2/user/logout.jsp">[로그아웃]</a><p>
 				<table>
 					<tr>
 						<th>번호</th>
@@ -156,18 +152,8 @@
 				<% } %>
 				
 			</nav>
-			<a href="/Board1/write.jsp?pg=<%= pg %>" class="btnWrite">글쓰기</a>
+			<a href="/Board2/write.do" class="btnWrite">글쓰기</a>
 		</div>
 	</body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
