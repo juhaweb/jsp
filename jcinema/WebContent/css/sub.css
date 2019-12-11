@@ -1,0 +1,278 @@
+
+/* 서브페이지 */
+#sub {width:100%;}
+#sub > .sub-menu {background:#dad2b4; width:100%; height:40px;}
+
+/* 예매 *//* - 사이드배너 */
+#sub.choice-movie > div > article {position: relative; width:980px; height:auto; margin:0 auto;}
+#sub.choice-movie .side-banner {position: absolute;height:300px; top:152px;}
+#sub.choice-movie .side-banner.left {left:50%; margin-left:500px;}
+#sub.choice-movie .side-banner.right {right:50%; margin-right:500px;}
+#sub.choice-movie .side-banner.right::after {clear:both;}
+
+#sub.choice-movie > .theater {background:#f9f6ec; height:730px;}
+
+
+/* 예매 - 상단달력 */
+#sub.choice-movie > .theater .calendar {position: relative; width:100%; height:132px; padding-top:20px; margin-bottom:20px;}
+#sub.choice-movie > .theater .calendar > nav {float:left; margin-left:80px;}
+#sub.choice-movie > .theater .calendar > nav > .month {color:#111; font-size:32px; font-weight:800; border-bottom:2px solid #111;}
+#sub.choice-movie > .theater .calendar > nav > .year {margin-left:10px; color:#555;font-weight:800; letter-spacing:0.6px; }    
+#sub.choice-movie > .theater .calendar > div {clear:both; width:840px; height:50px; margin:0 auto; padding-top:18px; }    
+
+#sub.choice-movie > .theater .calendar ul {overflow: hidden;}    
+#sub.choice-movie > .theater .calendar ul > li {float: left; width:60px; font-weight:700;}    
+#sub.choice-movie > .theater .calendar ul > li.on span {color:#fff; font-weight:800; background:#111; border-radius: 16px; }    
+
+#sub.choice-movie > .theater .calendar ul a {display:block; text-align: center;}    
+#sub.choice-movie > .theater .calendar ul em {display: block; font-size:13px; font-style: normal;margin-bottom:4px;}    
+#sub.choice-movie > .theater .calendar ul span {display: inline-block; text-align: center; width:32px; height:32px;font-size:15px;line-height:32px;} 
+
+#sub.choice-movie > .theater .calendar ul > li.day a {color:#111;}    
+#sub.choice-movie > .theater .calendar ul > li.sat a {color:#407bbb;}    
+#sub.choice-movie > .theater .calendar ul > li.sun a {color:red;}    
+
+
+/* 예매 - 내용부 공통 */
+#sub.choice-movie > .theater section {border-top:2px solid #111; overflow:hidden; width:100%; height:auto; background:#fff;}
+#sub.choice-movie > .theater section > div > div {width:100%; height:56px; line-height: 56px; border-bottom:1px solid #ddd; padding:0 20px; }
+#sub.choice-movie > .theater section > div h3   {float:left; font-size:20px; font-weight: 700;}
+#sub.choice-movie > .theater section > div h4   {float:left; font-size:14px; font-weight: 700;}
+#sub.choice-movie > .theater section > div span {float:right; font-size:14px; color:#666; }
+#sub.choice-movie > .theater section > div p    {float:right; font-size:14px; color:#666; }
+#sub.choice-movie > .theater section > div a.login {display:inline-block; border:1px solid #666; width:70px; height:30px; line-height: 30px; }
+#sub.choice-movie > .theater section > div a.login::before {position:relative; content:""; display:inline-block; width:14px; height:14px; top:2px; left:6px; padding-right:6px; background: url(/jcinema/img/ico_btn_login.png) no-repeat; }
+
+#sub.choice-movie > .theater section > div > article { width:100%; height:462px; padding:20px 0 0 20px; }
+#sub.choice-movie > .theater section > div > article > h4 {background: url('/jcinema/img/header_gnb_bullet.gif') no-repeat left 5px; margin-bottom:14px; padding-left:10px;}
+
+
+/* 예매 - 왼쪽 영화관 */
+#sub.choice-movie > .theater section > .region::before {clear:both;}
+#sub.choice-movie > .theater section > .region { float:left; width:600px; height:auto;  }
+#sub.choice-movie > .theater section > .region ul {position: relative; width:568px; overflow-y: auto; overflow-x: hidden; }
+#sub.choice-movie > .theater section > .region ul > li {width:130px; height:48px;}
+#sub.choice-movie > .theater section > .region ul > li > a {display:block; width:100%; height:40px; line-height:40px; font-size:13px; font-weight: 700; color:#666; padding-left:10px;}
+#sub.choice-movie > .theater section > .region ul > li.active > a {background:#111; color:#fff; }
+#sub.choice-movie > .theater section > .region ul > li.active > a::before {position:relative; content:""; display:inline-block; width:10px; height:15px; 
+                                                                            background: url('/jcinema/img/header_gnb_bullet_w.gif') no-repeat 0px 8px;}
+#sub.choice-movie > .theater section > .region ul ol {position: absolute; left:140px; top:0; width:418px; height:100%; display:none;}
+#sub.choice-movie > .theater section > .region ul ol.on {display:block;}
+#sub.choice-movie > .theater section > .region ul ol > li {float:left; width:128px; height:40px; margin:0 10px 10px 0;}
+#sub.choice-movie > .theater section > .region ul ol > li > a {display:block; line-height:40px; text-align: center; color:#666; border:1px solid #eee; background: #eee; }
+#sub.choice-movie > .theater section > .region ul ol > li.chk > a {background:#fff; color:#111; border:1px solid #666; font-weight:800; }
+#sub.choice-movie > .theater section > .region ul ol > li.chk > a::before {position:relative; content:""; display:inline-block; width:13px; height:10px; 
+                                                                            background: url('/jcinema/img/bg_check.png') no-repeat 0px 1px; padding-right:6px;margin-left:-20px;}
+
+
+/* 예매 - 오른쪽 영화순위 */
+#sub.choice-movie > .theater section > .rank {float:left; width:379px; height:auto; border-left:1px solid #ddd; }
+#sub.choice-movie > .theater section > .rank article{ padding-top:0;}
+#sub.choice-movie > .theater section > .rank a.on {font-weight:800;}
+#sub.choice-movie > .theater section > .rank a::after{content:"|"; display:inline-block; padding:0 10px; color:#ccc; font-weight:normal;}
+#sub.choice-movie > .theater section > .rank a:last-child::after{content:none; }
+
+#sub.choice-movie > .theater section > .rank ul {overflow-x: hidden; overflow-y:scroll; height:462px;}
+#sub.choice-movie > .theater section > .rank ul > li > a {float:left; display:block;  padding:14px; text-align: left; margin-bottom:4px; }
+#sub.choice-movie > .theater section > .rank ul .grade {float:left; display:block; width:20px; height:20px; line-height: 20px; background-image: url(../img/sprite_bg_grade.png); margin-right:5px; font-size:0; }
+#sub.choice-movie > .theater section > .rank ul .gradeAll{background-position:0px 0px;}
+#sub.choice-movie > .theater section > .rank ul .grade12 {background-position:-21px 0px;}
+#sub.choice-movie > .theater section > .rank ul .grade15 {background-position:-42px 0px;}
+#sub.choice-movie > .theater section > .rank ul .grade18 {background-position:-63px 0px;}
+#sub.choice-movie > .theater section > .rank ul .grade19  {background-position:-84px 0px;}
+#sub.choice-movie > .theater section > .rank ul .tit {float:left;width:260px;}
+
+/* 예매 - 상영시간 */
+
+#sub.choice-movie > .showtime::before {clear:both;}
+#sub.choice-movie > .showtime .info {background-color:#dad2b4; width:100%; height:80px;line-height: 32px; font-size:16px; padding:24px;}
+#sub.choice-movie > .showtime .info > em {font-style:normal;}
+#sub.choice-movie > .showtime .info > span {font-weight:800;padding:0 20px;}
+#sub.choice-movie > .showtime .info > .infoDate {}
+#sub.choice-movie > .showtime .info > .infoTheater {font-size:13px;display:inline-block; background:#e5e0cb; border:1px solid #bab093; margin-right:20px;}
+#sub.choice-movie > .showtime .info > .infoMovie {font-size:13px;display:inline-block; background:#e5e0cb; border:1px solid #bab093; margin-right:20px;}
+#sub.choice-movie > .showtime section {width:980px; height:auto;padding:40px 0px;}
+#sub.choice-movie > .showtime section > h1 {font-size:24px;}
+#sub.choice-movie > .showtime section > h1 > span {font-size:12px; margin-left:10px;}
+#sub.choice-movie > .showtime section > .nodata {display:block; width:980px;height:400px; line-height: 400px;  text-align: center;}
+#sub.choice-movie > .showtime .banner {}
+
+
+/* choice-seat.html 좌석선택 */
+#sub.choice-seat {width:100%; }
+#sub.choice-seat > section {width:100%; }
+
+#sub.choice-seat > section:nth-of-type(1){background:#f9f6ec;}
+#sub.choice-seat > section:nth-of-type(2){}
+#sub.choice-seat > section:nth-of-type(3){border-top:1px solid #e0e0e0; border-bottom:1px solid #e0e0e0;}
+#sub.choice-seat > section:nth-of-type(4){background:#cdc197;}
+#sub.choice-seat > section:nth-of-type(5){background:#33373a; border:1px solid #000;}
+
+#sub.choice-seat > section > div{width:980px; margin:0 auto;}
+
+#sub.choice-seat .seat-setting {padding:50px 0 30px; height:250px; box-sizing:content-box;}
+#sub.choice-seat .seat-setting > h1 {font-size:30px; font-weight:700; display:inline-block; margin-bottom:20px;}
+#sub.choice-seat .seat-setting > div {background:#fff; padding:0px 20px; font-size:14px;}
+#sub.choice-seat .seat-setting > div > div { width:100%; border-bottom:1px solid #ccc;padding:20px 0px 10px;}
+#sub.choice-seat .seat-setting > div > div > span { height:30px;display:inline-block; font-weight:800; padding:0px 20px 0px 30px;}
+#sub.choice-seat .seat-setting > div > div > em { font-style:normal;}
+#sub.choice-seat .seat-setting > div > div > span:first-child {padding-left:0px;}
+#sub.choice-seat .seat-setting > div > div:nth-of-type(2) {height:60px; padding:20px 0px;}
+#sub.choice-seat .seat-setting > div > div:nth-of-type(2) > em {float:right; font-style:normal;}
+#sub.choice-seat .seat-setting > div > div:nth-of-type(3) {height:60px; padding:20px 0px; border:none;}
+#sub.choice-seat .seat-setting > div > div > select {width:70px; height:30px; border:1px solid #ccc; }
+
+/* 스크린 */
+#sub.choice-seat .seat-area {min-height:550px;overflow:hidden;}
+#sub.choice-seat .seat-area > .screen {display:block; width:100%; height:25px; text-align:center; line-height:25px; margin:20px 0; background: url(/jcinema/img/bg_screen.gif);}
+#sub.choice-seat .seat-area > .screen > em {color:#231f20; font-size:20px; font-style: italic; }
+#sub.choice-seat .seat-area > article {background:#f9f8f3; padding:20px 0; height:auto;}
+#sub.choice-seat .seat-area > article > ul {width:390px; margin:0 auto;}
+#sub.choice-seat .seat-area > article > ul > li {overflow: hidden;}
+#sub.choice-seat .seat-area > article .tit {float:left; display:block; width:22px; height:22px; line-height:22px; text-align: center;  margin-right:20px; font-weight:800;}
+#sub.choice-seat .seat-area > article a {display:block; float:left; color:#fff; background:#848484;width:22px; height:22px; line-height: 22px; text-align:center; margin:2px;}
+
+#sub.choice-seat .seat-area p {width:100%; font-size:12px; line-height:18px; padding:20px 0;}
+#sub.choice-seat .seat-area ol {display:block; float:right; overflow: hidden; margin:20px 0px;}
+#sub.choice-seat .seat-area ol > li {display:list-item; float:left; padding-left:30px; line-height: 14px; font-size:13px;}
+#sub.choice-seat .seat-area ol > li > i {position:relative; display:inline-block; margin-right:6px; margin-bottom: -3px; width:14px; height:14px; background: url(/jcinema/img/sprite_bg_seat.png) no-repeat;}
+#sub.choice-seat .seat-area ol > li:nth-child(1) > i {background-position:-56px 4px;width:32px;}
+#sub.choice-seat .seat-area ol > li:nth-child(2) > i {background-position:0px 0px;}
+#sub.choice-seat .seat-area ol > li:nth-child(3) > i {background-position:-14px 0px;}
+#sub.choice-seat .seat-area ol > li:nth-child(4) > i {background-position:-28px 0px;}
+#sub.choice-seat .seat-area ol > li:nth-child(5) > i {background-position:-42px 0px;}
+
+#sub.choice-seat .seat-info {width:980px; padding:10px 0px; overflow: hidden; }
+#sub.choice-seat .seat-info ol > li {display:inline-block; padding-left:60px; height:14px; line-height: 14px; font-size:12px;}
+#sub.choice-seat .seat-info ol > li > i {position:relative; display:inline-block; margin-right:6px; margin-bottom:-3px; width:14px; height:14px; background: url(/jcinema/img/sprite_bg_seat.png) no-repeat;}
+#sub.choice-seat .seat-info ol > li > i.bg_seat_sweet {background-position:0px -14px;}
+#sub.choice-seat .seat-info ol > li > i.bg_seat_couple {background-position:-14px -14px;}
+#sub.choice-seat .seat-info ol > li > i.bg_seat_family {background-position:-28px -14px;}
+#sub.choice-seat .seat-info ol > li > i.bg_seat_comfort {background-position:-42px -14px;}
+#sub.choice-seat .seat-info ol > li > i.bg_set_disable {background-position:-56px -14px;}
+#sub.choice-seat .seat-info ol > li > i.bg_set_foot {background-position:-70px -14px;}
+
+#sub.choice-seat .back-and-pay {height:50px; line-height:50px; font-size:14px; font-weight:800;}
+#sub.choice-seat .back-and-pay a:first-child {display:inline-block;padding-left:10px; }
+#sub.choice-seat .back-and-pay a:first-child::before {display:inline-block; content: ""; width:30px; height:14px; margin-bottom:-2px; background:url(/jcinema/img/btn_total_prev.png) no-repeat; }
+#sub.choice-seat .back-and-pay a:last-child{display:inline-block; float:right; width:120px; height:30px; line-height:26px; background:#f5f3ea;border:1px solid #b2a168; margin:10px; text-align: center;}
+
+#sub.choice-seat .total-info {height:200px; position:relative; }
+#sub.choice-seat .total-info > div:first-child {border-left:1px solid #666;}
+#sub.choice-seat .total-info > div {display:block; float:left; width:33.33%; height:100%; padding:16px; border-right:1px solid #666;}
+#sub.choice-seat .total-info > div > span {display:block; font-size:14px; color:#cdc197; margin-bottom:10px;}
+
+#sub.choice-seat .total-info .poster {display:block; float:left; width:100px;}
+#sub.choice-seat .total-info .movie-info {display:block; float:left; padding-left:10px; color:#fff;}
+#sub.choice-seat .total-info .movie-info > strong {display:block; font-size:16px; margin-bottom:10px;}
+#sub.choice-seat .total-info .movie-info > b {display:block; font-size:12px;}
+#sub.choice-seat .total-info .movie-info > em {display:block; margin-top:80px; font-size:14px; font-style: normal;}
+
+#sub.choice-seat .total-info table {width:100%;}
+#sub.choice-seat .total-info table tr > td {padding-top:6px;}
+#sub.choice-seat .total-info table tr > td:first-child {font-size:14px; color:#a7a9ac;}
+#sub.choice-seat .total-info table tr > td:last-child {font-size:14px; color:#ddd; font-weight:700;}
+#sub.choice-seat .total-info table tr > td.right {text-align: right; font-size:14px; color:#ddd; font-weight:700;}
+#sub.choice-seat .total-info h2 {position:absolute; right:10px; bottom:10px; text-align: right; color:#ddd; font-size:22px; font-weight:700;}
+#sub.choice-seat .total-info h2 > span {margin-left:4px; font-size:14px;text-align: right; color:#ddd; font-weight:700;}
+
+
+
+
+
+/* order-confirm 결제하기 */
+#sub.order-confirm {width:100%; }
+#sub.order-confirm > section {width:100%; height:auto;}
+
+#sub.order-confirm > section:nth-of-type(1){background:#f9f6ec;}
+#sub.order-confirm > section:nth-of-type(2){background:#fff;}
+#sub.order-confirm > section:nth-of-type(3){background:#cdc197;}
+#sub.order-confirm > section:nth-of-type(4){background:#282e34; border:1px solid #000;}
+
+#sub.order-confirm .movie-info {width:980px; margin:0 auto; height:370px;}
+#sub.order-confirm .movie-info > h1 {font-size:28px; padding:50px 0px 24px; color:#333;}
+#sub.order-confirm .movie-info > article {height:100%; border-top:2px solid #000; }
+#sub.order-confirm .movie-info > article > div {padding:20px 20px 20px 50px;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) {height:140px;background: #fff;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > img {display:block; float:left; width:70px;  padding-bottom:20px;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > table {padding-left:20px;display:block; float:left;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > table th.tit {text-align: left; font-size:18px; font-weight:800; padding-bottom:12px;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > table th {text-align: left; font-size:14px; padding-bottom:4px; }
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > table td {text-align: left; font-size:14px; padding-bottom:4px; padding-right:120px;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > h2 {display:block; float:right; line-height:100px;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(1) > h2 > i {font-style: normal; font-size:12px; padding-left:8px;}
+
+#sub.order-confirm .movie-info > article > div:nth-of-type(2) {background-color:#dad2b4;height:76px;  }
+#sub.order-confirm .movie-info > article > div:nth-of-type(2) > strong {display:block; float:left;font-size:28px; font-weight:800; }
+#sub.order-confirm .movie-info > article > div:nth-of-type(2) > h3 {font-size:24px; font-weight:800; display:block; float:right; font-size:28px;}
+#sub.order-confirm .movie-info > article > div:nth-of-type(2) > h3 > i {font-style: normal; font-size:12px; padding-left:8px;}
+
+/* 할인 쿠폰사용 */
+
+#sub.order-confirm .dc-coupon {height:auto; width:980px; margin:0 auto; margin-bottom:40px;}
+#sub.order-confirm .dc-coupon > h1 {font-size:28px; padding:50px 0px 24px; color:#333;}
+#sub.order-confirm .dc-coupon > a {display:block; width:100%; height:70px; line-height:20px; padding:25px 30px; margin-top:20px; background-color:#f5f5f5; border:1px solid #dedede; 
+                                  background-image: url(/jcinema/img/btn_order_off.png); background-repeat: no-repeat; background-position:925px 50%; color:#333; font-size:18px; font-weight:800;}
+#sub.order-confirm .dc-coupon > a.on {background-color:#282e34; border:1px solid #282e34; color:#cdc197;background-image: url(/jcinema/img/btn_order_on.png); }
+#sub.order-confirm .dc-coupon > article { display:none; min-height:80px; padding:25px 30px; overflow: hidden; padding:30px 30px 50px;  border:1px solid #dedede; border-top:none;}
+#sub.order-confirm .dc-coupon > article.on { display:block; }
+#sub.order-confirm .dc-coupon > article > p { width:100%; }
+
+
+/* 이전단계 */
+#sub.order-confirm .back {width:980px; margin:0 auto;  height:50px; line-height:50px; font-size:14px; font-weight:800;}
+#sub.order-confirm .back a {display:inline-block;padding-left:10px; }
+#sub.order-confirm .back a::before {display:inline-block; content: ""; width:30px; height:14px; margin-bottom:-2px; background:url(/jcinema/img/btn_total_prev.png) no-repeat; }
+
+/* 결제하기 */ 
+
+#sub.order-confirm .total-price {width:980px; height:280px; margin:0 auto; }
+#sub.order-confirm .total-price > div:first-child {border-left:1px solid #555;}
+#sub.order-confirm .total-price > div {float:left; width:33.33%; height:100%; padding:26px; border-right:1px solid #555; }
+#sub.order-confirm .total-price > div > span {display:block; font-size:14px; color:#cdc197; margin-bottom:20px; font-weight:800; }
+#sub.order-confirm .total-price > div > p {color:#a7a9ac; }
+#sub.order-confirm .total-price > div > p > span {}
+#sub.order-confirm .total-price > div > p > em {color:#fff; font-style: normal;}
+
+#sub.order-confirm .total-price .order {position: relative;}
+#sub.order-confirm .total-price .discount {position: relative;}
+#sub.order-confirm .total-price h5 {position: absolute; bottom:26px; right:30px; color:#fff; font-size:28px;float:left; }
+#sub.order-confirm .total-price h5 > em {color:#fff; font-size:24px; padding-left:4px; font-style:normal;}
+
+#sub.order-confirm .total-price .pay h4 {width:100%; text-align: right; color:#fff; font-size:40px;}
+#sub.order-confirm .total-price .pay h4 i {font-style: normal; font-size:24px;}
+#sub.order-confirm .total-price .pay > a {display:block; background:#b49763; width:100%;height:70px;line-height: 70px; font-size:24px; color:#333; text-align: center; font-weight:700; margin-top:72px;}
+
+
+
+
+
+
+/* order-result.html 결제완료 */
+
+#sub.order-result  {background:#f9f6ec; }
+#sub.order-result .save-point {height:auto; width:980px; margin:0 auto; padding-bottom:40px;}
+#sub.order-result .save-point > h1 {font-size:28px; padding:50px 0px 24px; color:#333;}
+#sub.order-result .save-point > p {font-size:18px; line-height:26px; margin-bottom:30px;}
+#sub.order-result .save-point > p > strong {color:rgb(197, 21, 21);}
+
+#sub.order-result .save-point > h2 {display:block; width:100%; height:80px; background:#282e34; line-height: 80px; color:#cdc197; padding: 0 30px;}
+#sub.order-result .save-point > article {width:100%; min-height:400px; background:#fff; padding:30px; font-size:14px; border:1px solid #ccc;}
+#sub.order-result .save-point > article > label {font-weight: 800; }
+#sub.order-result .save-point > article > label > input {margin:0 6px;}
+#sub.order-result .save-point > article > div {margin-top:10px; min-height:100px; padding:40px;}
+#sub.order-result .save-point > article > div > p {text-align: center;}
+#sub.order-result .save-point > article > div.member.checked {border-top:1px solid #282e34; }
+#sub.order-result .save-point > article > div.card {border-top:1px solid #ccc;}
+#sub.order-result .save-point > article > div.card span {display:inline-block; padding-right:20px; color:#ccc;}
+#sub.order-result .save-point > article > div.card > input {border:1px solid #ccc; background:#f5f5f5; width:100px; height:30px; }
+#sub.order-result .save-point > article > div.btn {text-align: center;}
+#sub.order-result .save-point > article > div.btn a {display:inline-block; width:130px; height:40px; line-height:40px; font-weight:800; text-align: center; border:1px solid #111; margin:4px;}
+#sub.order-result .save-point > article > p:last-child {font-size:12px; line-height: 20px;}
+#sub.order-result .save-point > article > p:last-child > strong {display:block; font-size:12px;font-weight:800; margin-bottom:10px;}
+
+
+
+
+
+

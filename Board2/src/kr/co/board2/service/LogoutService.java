@@ -8,7 +8,6 @@ import kr.co.board2.controller.CommonService;
 
 public class LogoutService implements CommonService {
 
-
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		

@@ -1,0 +1,179 @@
+/* login.html 로그인 회원가입 */
+#sub.login  {background:#f9f6ec; padding:50px 0px;}
+#sub.login > section {height:auto; width:980px; margin:0 auto;  }
+#sub.login > section h1 {font-size:28px; padding:50px 0px 24px; color:#333;}
+#sub.login > section article {width:100%; background:#fff; padding:30px; font-size:14px; }
+
+#sub.login ul.tab_btn {width:100%; height:53px; overflow: hidden;}
+#sub.login ul.tab_btn > li {display:block; float:left; width:33.33%; height:100%; }
+#sub.login ul.tab_btn > li:first-child {border-left:1px solid #ddd;}
+#sub.login ul.tab_btn > li > a {display:block; width:100%; height:100%; text-align: center; line-height: 50px ; border-top:1px solid #ddd; border-right:1px solid #ddd; border-bottom:1px solid #111; box-sizing: border-box;}
+#sub.login ul.tab_btn::after {clear:both;}
+
+#sub.login .tab { display:block;}
+#sub.login .tab { width:100%; height:auto; padding:40px 0px; }
+#sub.login .tab::after {clear:both;}
+
+/* 탭1 */
+#sub.login .tab1 > form {display:inline-block; overflow:hidden; }
+#sub.login .tab1 div {display:block; float:left; }
+#sub.login .tab1 > form label {display:block; margin-bottom:10px;}
+#sub.login .tab1 > form label > span {display:inline-block; width:90px; height:20px; line-height:20px; font-weight: 700;}
+#sub.login .tab1 > form label > input {display:inline-block; width:260px; height:40px; padding:10px; margin-right:10px; background:#efefef; border:1px solid #ddd; }
+#sub.login .tab1 input[type="submit"] {float:left; display:block;  width:98px; height:90px; text-align:center; background:#231f20  url(/jcinema/img/ico_login.png) no-repeat 33px 35%; color:#E5E1AF !important; padding-top:40px; }
+
+#sub.login .tab1 > p {clear:both; display:inline-block; padding:20px 0px 40px; text-align: center; width:50%; border-bottom:1px solid #ddd; }
+#sub.login .tab1 > p > a {display:inline-block; margin-left:20px; padding-right:20px;  width:120px; height:20px; background: url(/jcinema/img/ico_right_arrow.gif) no-repeat 100% 2px; text-align: right;}
+#sub.login .tab1 img.banner {float:right; margin-top:-103px;}
+
+/* 탭2 */
+#sub.login .tab2 {position: relative;}
+#sub.login .tab2 > img.kakao_banner {width:100%;}
+#sub.login .tab2 p {width:100%; line-height:20px; padding:26px 0px; font-size:12px;}
+#sub.login .tab2 > textarea {width:100% !important; height:180px !important; border:1px solid #ddd; background:#f9f6ec; padding:20px; overflow-y: auto; resize: none; font-size:14px;}
+#sub.login .tab2 > label.agree {display:block; width:100%; padding:20px 0px; border-bottom:1px solid #ddd;}
+
+#sub.login .tab2 form label {display:block; margin-bottom:10px; height:42px; font-size:14px; font-weight:700; }
+#sub.login .tab2 form label > span   {display:inline-block; width:120px; }
+#sub.login .tab2 form label > input  {display:inline-block; height:42px; width:96px; background:#efefef; border:1px solid #ddd;}
+#sub.login .tab2 form label > select {display:inline-block; height:42px; width:96px; background:#fff; border:1px solid #ddd; }
+#sub.login .tab2 form label.name > input{width:330px; margin-left:4px;}
+#sub.login .tab2 form label.pass > input {width:330px; margin-left:4px;}
+
+
+#sub.login .tab2 input[type="submit"] {clear:both; margin:20px auto; display:block; width:120px; height:40px; line-height: 40px; background:#231f20 ; 
+                                       font-size:16px; font-weight:800; color:#E5E1AF !important;}
+#sub.login .tab2 img.banner {position: absolute;right:0; bottom:90px;}
+
+
+/* 탭3 */
+#sub.login .tab3 {width:100%; min-height:200px;}
+#sub.login .tab3 > p {display:block; width: 50%; font-size:12px;  }
+#sub.login .tab3 > a.naver {display:block; float:left; width:240px; height:44px;border:1px solid #18a318; background:#17c017 url(/jcinema/img/ico_naver.gif) no-repeat; margin:40px 100px; }
+#sub.login .tab3 > a.naver > span {display:block; width:100%; padding:13px 20px; color:#fff; font-weight:700; text-align:right;}
+#sub.login .tab3 > a::after {display:block; clear:both; }
+#sub.login .tab3 > div {display:block; text-align: center; width:50%;}
+#sub.login .tab3 > div > a {display:inline-block; padding-right:20px;  width:120px; height:20px; background: url(/jcinema/img/ico_right_arrow.gif) no-repeat 100% 2px; text-align:right;}
+
+#sub.login .tab3 img.banner {float:right; margin-top:-180px;}
+
+/* 탭 display */
+#sub.login ul.tab_btn > li.on a {font-weight:800; border:1px solid #111;  border-bottom:1px solid #fff; border-top: 3px solid #111;}
+#sub.login div.tab > div {display:none;}
+#sub.login div.tab > div.on {display:block;}
+
+
+
+
+
+
+
+/* 하단공통 L포인트 회원가입 배너  */
+#sub.login > section > div > p:last-of-type {text-align: center; font-weight:800; font-size:13px; line-height:30px; background:#efebdb; padding:25px;}
+#sub.login > section > div > p:last-of-type > a {display:inline-block; width:100px; height:30px; margin-left:10px; background:#fff;border:1px solid #ddd; }
+
+
+/* my-cinema 마이시네마 */
+#sub.my-cinema > section:nth-of-type(1) {background:#f9f6ec; padding-bottom:40px; } 
+#sub.my-cinema > section:nth-of-type(2) {background:#fff; padding-bottom:40px; } 
+
+#sub.my-cinema .my-info {width:980px; margin:0 auto; height:auto; }
+#sub.my-cinema .my-info > h1 {font-size:28px; padding:50px 0px 40px; color:#333;}
+#sub.my-cinema .my-info > h2 {width:100%; height:50px; font-size:15px; line-height:30px; color:#fff; background: #282e34;font-weight: normal; padding:10px 30px; }
+#sub.my-cinema .my-info > h2 em {color:#cdc197; font-style:normal;}
+#sub.my-cinema .my-info > h2 > span.name {display:block; float:left; }
+#sub.my-cinema .my-info > h2 > span.grade {display:block; float:right;}
+#sub.my-cinema .my-info > h2 > span.grade em {color:#cdc197; font-style:normal; font-size:18px; font-weight: 700;}
+#sub.my-cinema .my-info > h2 > span.grade em::before {display:inline-block; content:" | "; color:#999; font-size:15px; font-weight:normal; padding:0 14px; }
+
+#sub.my-cinema .my-info strong {font-size:16px; font-weight:800;}
+#sub.my-cinema .my-info > article {background:#fff;  height:auto;  }
+#sub.my-cinema .my-info > article > div {border-bottom:1px solid #ddd; padding:30px; height:90px; line-height:30px;}
+#sub.my-cinema .my-info > article > div > a.setting {display:inline-block; width:30px; height:30px; font-size:0; background: url(/jcinema/img/btn_setting.gif) no-repeat; margin-left:20px;}
+
+#sub.my-cinema .my-info > article > section {background:#fff; height:210px; }
+#sub.my-cinema .my-info > article > section > div {width:50%; padding:30px; height:100%; }
+#sub.my-cinema .my-info > article > section > div.point {display:block; float: left; border-right:1px solid #ddd; }
+#sub.my-cinema .my-info > article > section > div.coupon {display:block; float: right;}
+
+#sub.my-cinema .my-info > article > section > div a {display:block; float:right; border:1px solid #999; width:70px; height:26px; line-height:24px; text-align:center;}
+#sub.my-cinema .my-info > article > section > div a::after {clear:both;}
+#sub.my-cinema .my-info > article > section > div.point > p:nth-of-type(2) {padding:20px 0px 80px; }
+#sub.my-cinema .my-info > article > section > div.point > p:nth-of-type(2) > em {display:block; float:left; background:#007fb4;height:22px; line-height: 22px; color:#fff; font-style:normal; padding:0px 6px; }
+#sub.my-cinema .my-info > article > section > div.point > p:nth-of-type(2) > span {display:block; float:right; background:#007fb4; font-size:30px; padding-right:20px; background:url(/jcinema/img/ico_point.png) no-repeat right 10px;}
+#sub.my-cinema .my-info > article > section > div.point > p:nth-of-type(3) {clear:both; line-height:20px; }
+
+#sub.my-cinema .my-info > article > section > div.coupon > ul {padding-top:20px; }
+#sub.my-cinema .my-info > article > section > div.coupon > ul > li {display:block; float:left; line-height: 28px; font-size:14px; width:100%; }
+#sub.my-cinema .my-info > article > section > div.coupon > ul > li > span {display:block; float:right;}
+#sub.my-cinema .my-info > article > section > div.coupon > ul > li > span > i {display:inline-block; padding-right:4px; font-size:24px; font-style:normal;}
+
+
+
+/* 마이페이지 tab */ 
+#sub.my-cinema .reserve-history {width:980px; margin:0 auto;}
+#sub.my-cinema .reserve-history > ul {margin-top:40px; height:50px;}
+#sub.my-cinema .reserve-history > ul > li {display:block; float:left; width:25%; border-right:1px solid #fff; background:#efebdb;  font-size:14px; text-align: center; color:#333;border-bottom:1px solid #231f20;}
+#sub.my-cinema .reserve-history > ul > li > a {width:100%; height:100%; line-height:50px; }
+#sub.my-cinema .reserve-history > ul > li.on {background:#231f20; }
+#sub.my-cinema .reserve-history > ul > li.on a { color:#cdc197 !important;}
+
+#sub.my-cinema .reserve-history .tab1 > article {position:relative; width:100%; min-height:200px; border-bottom:1px solid #ccc;}
+#sub.my-cinema .reserve-history .tab1 .nodata {position: absolute; left:50%; top:50%; margin-left:-120px; height:24px; font-size:18px; color:#666; width:auto; background: url(/jcinema/img/ico_nodata.png) no-repeat; padding-left:30px; }
+
+#sub.my-cinema .reserve-history .tab1 > .pay-attention {margin-top:40px; background:#f5f5f5; padding:30px; }
+#sub.my-cinema .reserve-history .tab1 > .pay-attention > h5 {font-size:14px; color:#111; padding-bottom: 20px; }
+#sub.my-cinema .reserve-history .tab1 > .pay-attention > p {font-size:12px; line-height:24px;  }
+#sub.my-cinema .reserve-history .tab1 > .pay-attention span {font-size:13px; font-weight:800;}
+#sub.my-cinema .reserve-history .tab1 > .pay-attention .important {color: #cc0404;}
+#sub.my-cinema .reserve-history .tab1 > .pay-attention em.important {color: #cc0404; font-weight:800;}
+#sub.my-cinema .reserve-history .tab1 > .pay-attention em {color: #cc0404; font-style:normal;}
+
+
+/* 회원등록 */
+#sub.register {width:100%;}
+#sub.register > section:nth-of-type(1) {width:100%; background:#f9f6ec;}
+#sub.register > section:nth-of-type(2) {width:100%; background:#FFF;}
+
+#sub.register > section > div {width:980px; margin:0 auto; padding-top:40px;}
+#sub.register > section > div > h1 {margin-bottom:20px;font-size:28px; }
+
+#sub.register div > article input[type="checkbox"] {margin-right:6px;}
+#sub.register div > article input[type="text"] {width:180px; height:34px; background:#f0f0f0; padding:0 10px; line-height:34px;}
+#sub.register div > article select{height:34px; background:#f0f0f0; padding:0 10px; line-height:34px; }
+
+#sub.register div > article {background:#fff; padding:30px 20px; color: #999999;}
+#sub.register div > article > h3 {display:block; width:100%; border-bottom:1px solid #111; padding-bottom:10px; color:#333;}
+
+#sub.register div.agreement article > label:first-of-type {display:block; width:100%; border-bottom:1px solid #ddd; padding:16px 0;font-size:16px; font-weight:800; color:#111;}
+#sub.register div.agreement article > div {font-size:14px; line-height:30px;}
+#sub.register div.agreement article > div > strong {display:inline-block; font-style:normal; padding-top:30px;}
+#sub.register div.agreement article > div > p {display:inline-block; width:100%; border-bottom:1px solid #ddd; padding:10px 0 ; font-size:15px; }
+#sub.register div.agreement article > div > p em {color:#0092fa; font-style: normal; }
+#sub.register div.agreement article > div > p a {display:block; float:right; text-decoration: underline;}
+#sub.register div.agreement article > p:last-of-type {display:inline-block; width:100%; border-top:1px solid #888; font-size:16px; padding-top:10px; color:#0092fa; margin-top:20px;}
+
+#sub.register div.member {padding:40px 0px; font-size:14px;}
+#sub.register div.member table {width:100%}
+#sub.register div.member table tr {display:block;padding:20px 0; border-bottom:1px solid #ddd; }
+#sub.register div.member table tr > td:first-of-type {width:140px;}
+#sub.register div.member table select.tel {width:120px;}
+#sub.register div.member table input.tel {width:120px;}
+#sub.register div.member table select.hp {width:120px;}
+#sub.register div.member table input.hp {width:120px;}
+#sub.register div.member article table tr:last-of-type label {display:inline-block; width:80px;}
+#sub.register div.member article table tr:last-of-type div {padding-bottom:10px;}
+#sub.register div.member article table tr:last-of-type div > label input[type="radio"] {display:inline-block; margin-right:6px;}
+#sub.register div.member article table tr:last-of-type button {display:inline-block; width:80px; height:34px; background:#333; color:#fff; }
+#sub.register div.member article table tr:last-of-type input[class="zip"] { width:120px;}
+#sub.register div.member article table tr:last-of-type input[class="addr"] { display:block; width:600px; margin-top:10px; }
+#sub.register div.member article p:last-of-type {display:inline-block; width:100%; padding:10px 0;}
+
+#sub.register div.member article.marketing label {display:inline-block; color:#111; margin-right:20px;}
+#sub.register div.member article.marketing p:last-of-type {font-size:15px; color:#0092fa; line-height: 24px;}
+
+#sub.register div.member div:last-child {text-align: center;}
+#sub.register div.member div:last-child a.btn {display:inline-block; width:140px; height:40px; line-height:40px;border-radius: 4px; color:#fff; font-weight:800; text-align: center; }
+#sub.register div.member div:last-child a.btn.cancel {background:#333333; }
+#sub.register div.member div:last-child a.btn.register {background:#0092fa; }
+
