@@ -224,7 +224,7 @@
   <section>
       <div class="back-and-pay">
           <a href="#">영화선택</a>
-          <a href="${path}/ticketing/order-confirm.do">일반결제</a>
+          <a href="${path}/ticketing/order-confirm">일반결제</a>
       </div>
   </section>
   <section>

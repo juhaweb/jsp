@@ -47,9 +47,9 @@
             <a href="#">구독하기</a>
           </p>
           <p>
-              <a href="${path}/member/login.do">로그인</a>
-              <a href="${path}/member/register.do">회원가입</a>
-              <a href="${path}/member/my-cinema.do">멤버십</a>
+              <a href="${path}/member/login">로그인</a>
+              <a href="${path}/member/register">회원가입</a>
+              <a href="${path}/member/my-cinema">멤버십</a>
               <a href="#">고객센터</a>
           </p>
         </article>
@@ -62,7 +62,7 @@
       <div class="gnb">
         <article>
           <ul>
-            <li class="on"><a href="${path}/ticketing/choice-movie.do">예매</a></li>
+            <li class="on"><a href="${path}/ticketing/choice-movie">예매</a></li>
             <li><a href="#">영화</a></li>
             <li><a href="#">영화관</a></li>
             <li><a href="#">이벤트</a></li>

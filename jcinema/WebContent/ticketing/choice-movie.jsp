@@ -52,7 +52,7 @@
               <h4>MY 영화관</h4>
               <p>
                 로그인 후 확인하실 수 있습니다.
-                <a class="login" href="${path}/ticketing/choice-seat.do">로그인</a>
+                <a class="login" href="${path}/ticketing/choice-seat">로그인</a>
               </p>
             </div>
             <article>

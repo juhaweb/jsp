@@ -107,7 +107,7 @@
         <div class="pay">
           <span>총 결제 금액</span>
           <h4>10,000<i>원</i></h4>
-          <a href="${path}/ticketing/order-result.do">결제하기</a>
+          <a href="${path}/ticketing/order-result">결제하기</a>
         </div>
       </div>
     </section>
