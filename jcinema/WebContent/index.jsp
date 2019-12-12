@@ -83,7 +83,7 @@
           </li>
         </ul>
 
-        <a href="${path}/ticketing/choice-movie.do"> 예매하기 </a>
+        <a href="${path}/ticketing/choice-movie"> 예매하기 </a>
 
       </div>
     </div>

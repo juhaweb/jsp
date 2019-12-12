@@ -18,6 +18,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="${path}/js/jquery.bxslider.js"></script>
   <script src="${path}/js/topbanner.js"></script>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="${path}/js/zipcode.js"></script>
+  <script src="${path}/js/user"></script>
   <script src="${path}/js/ticketCalendar.js"></script>
 
   <!-- 작업중js -->

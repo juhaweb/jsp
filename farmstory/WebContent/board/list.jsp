@@ -33,7 +33,6 @@
 		pg = "1";
 	};
 	
-	
 	// 페이지 관련 변수 선언
 	int total		= 0;
 	int lastPage	= 0; 

@@ -17,7 +17,7 @@
 
           <div class="tab">
 
-            <div class="tab1">
+            <div class="tab1 on">
                 
               <form action="#">
                 <div>
@@ -35,7 +35,7 @@
               <img class="banner" src="${path}/img/login_side_banner.jpg" alt="">
             </div>
 
-            <div class="tab2 on">
+            <div class="tab2">
 
               <img class="kakao_banner" src="${path}/img/login_banner_kakao.png" alt="로그인 없이 바로 예매! 톡티켓으로 바로 입장">
 

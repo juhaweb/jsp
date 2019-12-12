@@ -10,6 +10,7 @@ public class ViewService implements CommonService{
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
+		// 그룹 카테 타이틀 얻기
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		String title = getCategoryTitle(cate);
@@ -22,11 +23,12 @@ public class ViewService implements CommonService{
 		
 	}
 
+	
+	// 카테고리 리스트 얻기 
 	public String getCategoryTitle(String cate) {
 		
 					// title 빈문자열로 선언. 
 		String title = "";
-		
 		
 		switch (cate) {
 		case "market":title="장보기"; break;
@@ -43,8 +45,10 @@ public class ViewService implements CommonService{
 		}
 		return title;
 		
-		
 	}
-	
 
+	
+	
+	
+	
 }

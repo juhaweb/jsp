@@ -2,6 +2,7 @@ package kr.co.farmstory2.config;
 
 public class SQL {
 	
+	
 	// 회원관련
 	public static final String SELECT_LOGIN = "SELECT * FROM `BOARD_MEMBER` WHERE `uid`=? AND `pass`=PASSWORD(?);";
 	

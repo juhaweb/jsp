@@ -52,12 +52,12 @@
                     </tr>
                     <tr>
                         <td>비밀번호</td>
-                        <td><input type="text" name="pw1"/></td>
+                        <td><input type="password" name="pw1"/></td>
                     </tr>
                     <tr>
                         <td>비밀번호 확인</td>
                         <td>
-                            <input type="text" name="pw2"/>
+                            <input type="password" name="pw2"/>
                             <span class="check_pw_result"></span>
                         </td>
                     </tr>
@@ -110,10 +110,10 @@
                                 <label><input type="radio" id="addrType1" name="addrType" value="1">자택</label>
                                 <label><input type="radio" id="addrType2" name="addrType" value="2">직장</label>
                             </div>
-                            <button>우편번호</button>
-                            <input type="text" name="zip"   class="zip"/>
-                            <input type="text" name="addr1" class="addr" />
-                            <input type="text" name="addr2" class="addr"/>
+                            <input type="text" name="zip"  	id="zip" class="zip" placeholder="우편번호" readonly/>
+                            <button type="button" onclick="zipcode()" class="btnFind" >우편번호</button>
+                            <input type="text" name="addr1" id="addr1" class="addr" placeholder="주소를 검색하세요." readonly/>
+                            <input type="text" name="addr2" id="addr2" class="addr" placeholder="상세주소를 입력하세요."/>
                         </td>
                     </tr>
                 </table>
@@ -152,8 +152,8 @@
                 </p>
             </article>
             <div>
-                <a href="#" class="btn cancel">취소</a>
-                <a href="#" class="btn register">회원가입</a>
+                <a href="${path}/" class="btn cancel">취소</a>
+                <a href="#" id="btnRegister" class="btn register">회원가입</a>
             </div>
         </div>
         
