@@ -50,9 +50,17 @@
             <a href="#">구독하기</a>
           </p>
           <p>
-              <a href="${path}/member/login">로그인</a>
-              <a href="${path}/member/register">회원가입</a>
-              <a href="${path}/member/my-cinema">멤버십</a>
+              <c:choose>
+	              <c:when test="${user eq null}">
+		            <a href="${path}/member/login">로그인</a>
+		            <a href="${path}/member/register">회원가입</a>
+	              </c:when>
+	              <c:otherwise>
+	              	<a href="${path}/member/logout">로그아웃</a>
+	              	<a href="${path}/member/my-cinema">멤버십</a>
+	              </c:otherwise>
+              </c:choose>
+              
               <a href="#">고객센터</a>
           </p>
         </article>

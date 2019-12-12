@@ -3,7 +3,9 @@ package kr.co.jcinema.config;
 public class SQL {
 
 	
-	//jcinema 회원관련
+	// 제이시네마
+	
+	// 회원가입
 	public static final String INSERT_MEMBER  = "INSERT INTO `JC_MEMBER` SET "
 											+ "`user_id`=?,"
 											+ "`user_pass`=PASSWORD(?),"
@@ -20,12 +22,14 @@ public class SQL {
 											+ "`user_regip`=?,"
 											+ "`user_rdate`=NOW();";
 	
+	// 회원로그인
+	public static final String SELECT_LOGIN = "SELECT * FROM `JC_MEMBER` WHERE `user_id`=? AND `user_pass`=PASSWORD(?);";
 	
 	
 	
 	
-	// 회원관련
-	public static final String SELECT_LOGIN = "SELECT * FROM `JC_MEMBER` WHERE `uid`=? AND `pass`=PASSWORD(?);";
+	// 아래는 수정전. 
+	
 	
 	public static final String INSERT_USER  = "INSERT INTO `JC_MEMBER` SET "
 								  + "`uid`=?,"

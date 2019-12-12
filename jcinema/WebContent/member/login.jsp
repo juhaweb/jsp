@@ -19,7 +19,7 @@
 
             <div class="tab1 on">
                 
-              <form action="#">
+              <form action="${path}/member/login" method="post">
                 <div>
                   <label><span>아이디</span><input type="text" name="uid"></label>
                   <label><span>비밀번호</span><input type="password" name="pass"></label>

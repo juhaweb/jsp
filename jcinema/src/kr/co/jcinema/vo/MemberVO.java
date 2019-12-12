@@ -18,8 +18,7 @@ public class MemberVO {
 	private String user_agree_point;
 	private String user_agree_site;
 	private String user_regip;
-	
-	
+		
 	
 	public String getUser_id() {
 		return user_id;

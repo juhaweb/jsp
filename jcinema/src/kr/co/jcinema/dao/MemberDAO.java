@@ -2,6 +2,7 @@ package kr.co.jcinema.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import kr.co.jcinema.config.DBConfig;
 import kr.co.jcinema.config.SQL;
@@ -10,6 +11,7 @@ import kr.co.jcinema.vo.MemberVO;
 
 public class MemberDAO {
 
+	// 싱글톤 객체 
 	private static MemberDAO instance = new MemberDAO();
 	
 	public static MemberDAO getInstance() {
@@ -52,12 +54,59 @@ public class MemberDAO {
 	
 	
 	
+	// ★ 로그인
+	public MemberVO selectMember(String user_id, String user_pw) throws Exception {
+		
+		// 1단계, 2단계
+		Connection conn = DBConfig.getConnection();
+		// 3단계
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LOGIN);
+		psmt.setString(1, user_id);
+		psmt.setString(2, user_pw);
+		
+		// 4단계
+		ResultSet rs = psmt.executeQuery();
+		
+		// 5단계
+		MemberVO mvo = null; 
+		
+		if(rs.next()){
+			// 입력한 아이디, 비밀번호에  해당하는 회원이 있으면
+			
+			mvo = new MemberVO();
+			
+			mvo.setUser_id(rs.getString(1));
+			mvo.setUser_pass(rs.getString(2));
+			mvo.setUser_name(rs.getString(3));
+			mvo.setUser_email(rs.getString(4));
+			mvo.setUser_tel(rs.getString(5));
+			mvo.setUser_hp(rs.getString(6));
+			mvo.setUser_grade(rs.getInt(7));
+			mvo.setUser_point(rs.getInt(8));
+			mvo.setUser_addr_type(rs.getString(9));
+			mvo.setUser_zip(rs.getString(10));
+			mvo.setUser_addr_main(rs.getString(11));
+			mvo.setUser_addr_detail(rs.getString(12));
+			mvo.setUser_agree_point(rs.getString(13));
+			mvo.setUser_agree_site(rs.getString(14));
+			mvo.setUser_regip(rs.getString(15));
+			
+		}
+		
+		//6단계
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return mvo;
+		
+	}
 	
 	
 	
 	
 	
-	public void selectMember() throws Exception {}
+	
 	public void updateMember() throws Exception {}
 	public void deleteMember() throws Exception {}
 	
