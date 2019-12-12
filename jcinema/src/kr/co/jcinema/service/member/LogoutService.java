@@ -17,7 +17,7 @@ public class LogoutService implements CommonService{
 		session.invalidate();
 		
 		// 로그인 페이지로 이동
-		return "redirect:/jcinema/";
+		return "redirect:/jcinema/member/login";
 	
 	
 	
