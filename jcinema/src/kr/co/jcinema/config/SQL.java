@@ -49,8 +49,13 @@ public class SQL {
 	
 	
 	
+	// 예매관련(티켓)
 	
 	
+	
+	
+	// 영화관련
+	public static final String SELECT_POSTERS = "SELECT `movie_no`, `movie_title`,`movie_poster` FROM `JC_MOVIE` ORDER BY `movie_release_date` DESC LIMIT 10; ";
 	
 	
 	
@@ -65,10 +70,6 @@ public class SQL {
 	
 	// 아래는 수정전. 
 	
-	
-	
-	
-	
 	public static final String INSERT_USER  = "INSERT INTO `JC_MEMBER` SET "
 								  + "`uid`=?,"
 								  + "`pass`=PASSWORD(?),"
@@ -82,8 +83,6 @@ public class SQL {
 								  + "`regip`=?,"
 								  + "`rdate`=NOW();";
 	
-
-	   
 	   
 	// 게시물관련
 	

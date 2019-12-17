@@ -21,11 +21,6 @@ public class MemberDAO {
 	private MemberDAO() {}
 	
 	
-	
-	
-	
-	
-	
 	// ★ 회원가입
 	public void insertMember(MemberVO mvo) throws Exception {
 	

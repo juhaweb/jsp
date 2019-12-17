@@ -22,6 +22,7 @@
   <script src="${path}/js/zipcode.js"></script>
   <script src="${path}/js/user.js"></script>
   <script src="${path}/js/ticketCalendar.js"></script>
+  <script src="${path}/js/mainSliderBanner.js"></script>
 
   <!-- 작업중js -->
   <script src="${path}/js/jsworks.js"></script>

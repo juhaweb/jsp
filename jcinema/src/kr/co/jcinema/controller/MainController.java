@@ -101,8 +101,9 @@ public class MainController extends HttpServlet {
 			String redirectUrl = result.substring(9);
 			resp.sendRedirect(redirectUrl);
 			
-		} else if (result.startsWith("{")) {
-			// json
+		} else if (result.startsWith("{") || result.startsWith("[")) {
+			// json, gson
+			resp.setContentType("application/json;charset=UTF-8");
 			PrintWriter out = resp.getWriter();
 			out.print(result);
 

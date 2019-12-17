@@ -92,17 +92,7 @@
   <!-- 2. 포스터 -->
   <div class="poster">
     <article>
-      <ul>
-        <li><a href="#"><img src="${path}/img/poster_banner_img1.jpg" alt="겨울왕국2"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img2.jpg" alt="조커"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img3.jpg" alt="가장 보통의 연애"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img4.jpg" alt="말레피센트"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img5.jpg" alt="82년생김지영"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img6.jpg" alt="터미네이터"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img7.jpg" alt="제미니맨"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img8.jpg" alt="엑시트"></a></li>
-        <li><a href="#"><img src="${path}/img/poster_banner_img9.jpg" alt="날씨의아이"></a></li>
-      </ul>
+      <ul></ul>
     </article>
   </div>
 
