@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+	
+	
+	
   // 메인 슬라이더 
   $('.bxslider').bxSlider({
     auto: true,
@@ -26,10 +29,45 @@ $(document).ready(function(){
 
   // 메인 공지사항 롤링업
   
-  
+
   
   
 });
+
+
+
+
+
+
+// 상단배너
+$(function(){
+	
+});
+
+// 예매순위
+$(function(){
+	
+});
+
+// 슬라이드배너
+$(function(){
+	
+});
+
+// 영화포스트 배너 
+$(function(){
+	
+	$.ajax({
+		url:'',
+		method:'',
+		dataType:'',
+		success: function(){}
+	});
+	
+	
+});
+
+
 
 
 

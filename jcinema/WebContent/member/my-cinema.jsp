@@ -8,7 +8,7 @@
       <div class="my-info">
         <h1>마이시네마</h1>
         <h2>
-          <span class="name"><em>홍길동</em>님 환영합니다!</span>                        
+          <span class="name"><em>${user}</em>님 환영합니다!</span>                        
           <span class="grade">회원등급<em>일반</em></span>
         </h2>
         <article>

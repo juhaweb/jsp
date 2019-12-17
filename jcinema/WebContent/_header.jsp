@@ -20,7 +20,7 @@
   <script src="${path}/js/topbanner.js"></script>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script src="${path}/js/zipcode.js"></script>
-  <script src="${path}/js/user"></script>
+  <script src="${path}/js/user.js"></script>
   <script src="${path}/js/ticketCalendar.js"></script>
 
   <!-- 작업중js -->
@@ -57,7 +57,7 @@
 	              </c:when>
 	              <c:otherwise>
 	              	<a href="${path}/member/logout">로그아웃</a>
-	              	<a href="${path}/member/my-cinema">멤버십</a>
+	              	<a href="${path}/member/my-cinema">마이시네마</a>
 	              </c:otherwise>
               </c:choose>
               

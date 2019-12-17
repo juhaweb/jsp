@@ -21,6 +21,11 @@ public class MemberDAO {
 	private MemberDAO() {}
 	
 	
+	
+	
+	
+	
+	
 	// ★ 회원가입
 	public void insertMember(MemberVO mvo) throws Exception {
 	
@@ -35,11 +40,12 @@ public class MemberDAO {
 		psmt.setString(4, mvo.getUser_email());
 		psmt.setString(5, mvo.getUser_tel());
 		psmt.setString(6, mvo.getUser_hp());
-		psmt.setString(7, mvo.getUser_addr_type());
-		psmt.setString(8, mvo.getUser_zip());
-		psmt.setString(9, mvo.getUser_addr_main());
-		psmt.setString(10, mvo.getUser_addr_detail());
-		psmt.setString(11, mvo.getUser_regip());
+		psmt.setInt(7, mvo.getUser_grade());
+		psmt.setString(8, mvo.getUser_addr_type());
+		psmt.setString(9, mvo.getUser_zip());
+		psmt.setString(10, mvo.getUser_addr_main());
+		psmt.setString(11, mvo.getUser_addr_detail());
+		psmt.setString(12, mvo.getUser_regip());
 		
 		// 4단계
 		psmt.executeUpdate();		
@@ -55,14 +61,14 @@ public class MemberDAO {
 	
 	
 	// ★ 로그인
-	public MemberVO selectMember(String user_id, String user_pw) throws Exception {
+	public MemberVO selectMember(String uid, String pass) throws Exception {
 		
 		// 1단계, 2단계
 		Connection conn = DBConfig.getConnection();
 		// 3단계
 		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LOGIN);
-		psmt.setString(1, user_id);
-		psmt.setString(2, user_pw);
+		psmt.setString(1, uid);
+		psmt.setString(2, pass);
 		
 		// 4단계
 		ResultSet rs = psmt.executeQuery();
@@ -90,15 +96,71 @@ public class MemberDAO {
 			mvo.setUser_agree_point(rs.getString(13));
 			mvo.setUser_agree_site(rs.getString(14));
 			mvo.setUser_regip(rs.getString(15));
+			mvo.setUser_rdate(rs.getString(16));
 			
 		}
 		
 		//6단계
-		rs.close();
 		psmt.close();
 		conn.close();
 		
 		return mvo;
+		
+	}
+	
+	// ★ 기존가입회원 체크  
+	public int selectCheckUid(String uid) throws Exception {
+	
+		// 1단계, 2단계
+		Connection conn = DBConfig.getConnection();
+		
+		// 3단계
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_CHECK_UID);
+		psmt.setString(1, uid);
+		
+		ResultSet rs = psmt.executeQuery();
+		
+		int result = 0;		
+		if(rs.next()) {
+			result = rs.getInt(1);
+		}
+				
+		// 6단계
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return result;
+		
+	}
+	
+	
+	
+	
+	// ★ 회원정보 업데이트
+	public void updateMember(MemberVO mvo) throws Exception {
+		
+		// 1단계, 2단계
+		Connection conn = DBConfig.getConnection();
+		
+		// 3단계
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_CHECK_UID);
+		psmt.setString(1, mvo.getUser_pass());
+		psmt.setString(2, mvo.getUser_name());
+		psmt.setString(3, mvo.getUser_tel());
+		psmt.setString(4, mvo.getUser_addr_type());
+		psmt.setString(5, mvo.getUser_zip());
+		psmt.setString(6, mvo.getUser_addr_main());
+		psmt.setString(7, mvo.getUser_addr_detail());
+		psmt.setString(8, mvo.getUser_agree_point());
+		psmt.setString(9, mvo.getUser_agree_site());
+		psmt.setString(10, mvo.getUser_id());
+		
+		
+		psmt.executeUpdate();
+		
+		psmt.close();
+		conn.close();
 		
 	}
 	

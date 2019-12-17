@@ -18,6 +18,7 @@ public class MemberVO {
 	private String user_agree_point;
 	private String user_agree_site;
 	private String user_regip;
+	private String user_rdate;
 		
 	
 	public String getUser_id() {
@@ -109,6 +110,12 @@ public class MemberVO {
 	}
 	public void setUser_regip(String user_regip) {
 		this.user_regip = user_regip;
+	}
+	public String getUser_rdate() {
+		return user_rdate;
+	}
+	public void setUser_rdate(String user_rdate) {
+		this.user_rdate = user_rdate;
 	}
 	
 	

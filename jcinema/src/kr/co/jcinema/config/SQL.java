@@ -13,7 +13,7 @@ public class SQL {
 											+ "`user_email`=?,"
 											+ "`user_tel`=?,"
 											+ "`user_hp`=?,"
-											+ "`user_grade`=2,"
+											+ "`user_grade`=?,"
 											+ "`user_point`=100,"
 											+ "`user_addr_type`=?,"
 											+ "`user_zip`=?,"
@@ -22,13 +22,51 @@ public class SQL {
 											+ "`user_regip`=?,"
 											+ "`user_rdate`=NOW();";
 	
+	public static final String UPDATE_MEMBER  = "UPDATE `JC_MEMBER` SET "
+											+ "`user_pass`=PASSWORD(?),"
+											+ "`user_name`=?,"
+											+ "`user_tel`=?,"
+											+ "`user_addr_type`=?,"
+											+ "`user_zip`=?,"
+											+ "`user_addr_main`=?,"
+											+ "`user_addr_detail`=?,"
+											+ "`user_agree_point`=?,"
+											+ "`user_agree_site`=?, "
+											+ "WHERE `user_id`=?;";
+	
+	
+	public static final String SELECT_TERMS = "SELECT * FROM `JC_TERMS`;";
+
+	public static final String SELECT_CHECK_UID = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `user_id`=? ";
+	public static final String SELECT_CHECK_EMAIL = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `user_email`=? ";
+	public static final String SELECT_CHECK_HP = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `user_hp`=? ";
+	
+	
 	// 회원로그인
 	public static final String SELECT_LOGIN = "SELECT * FROM `JC_MEMBER` WHERE `user_id`=? AND `user_pass`=PASSWORD(?);";
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// 아래는 수정전. 
+	
+	
+	
 	
 	
 	public static final String INSERT_USER  = "INSERT INTO `JC_MEMBER` SET "
@@ -44,12 +82,7 @@ public class SQL {
 								  + "`regip`=?,"
 								  + "`rdate`=NOW();";
 	
-	public static final String SELECT_TERMS = "SELECT * FROM `JC_TERMS`;";
-     
-	public static final String SELECT_CHECK_UID = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `uid=? ";
-	public static final String SELECT_CHECK_NICK = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `nick=? ";
-	public static final String SELECT_CHECK_EMAIL = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `email=? ";
-	public static final String SELECT_CHECK_HP = "SELECT COUNT(*) FROM `JC_MEMBER` WHERE `hp=? ";
+
 	   
 	   
 	// 게시물관련

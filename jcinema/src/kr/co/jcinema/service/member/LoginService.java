@@ -22,20 +22,20 @@ public class LoginService implements CommonService {
 			MemberDAO dao = MemberDAO.getInstance();
 			MemberVO mvo   = dao.selectMember(user_id, user_pw );
 					
+			// 회원여부 확인해서 세션처리. 
 			if(mvo != null) {
 
-				// 회원이 맞으면 
-				// 세선저장
+				// 회원이 맞으면 (세션저장. 메인으로 이동) 
 				HttpSession session = req.getSession();
 				session.setAttribute("user",mvo);
-				
 				// 리스트로 이동
 				return "redirect:/jcinema/";
 			
 			}else {
 				// 회원이 아니면
-				return "redirect:/jcinema/member/login";
+				return "redirect:/jcinema/member/login?success=fail";
 			}
+			
 				
 		}else {
 			

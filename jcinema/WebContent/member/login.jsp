@@ -53,7 +53,9 @@
                     ·&nbsp;고유번호란 비회원 로그인을 위해 임의로 설정하는 4자리 번호 입니다.<br>
                     ·&nbsp;모든 항목은 필수 입력 사항입니다.
                 </p>
-                <form action="#">
+                <form action="${path}/member/loginByNoneMember" method="post">
+                	<input type="hidden" name="hp">
+                	<input type="hidden" name="birth">
                   <div>
                       <label class="name"><span>이름</span><input type="text" name="name"></label>
                       <label class="hp">
@@ -75,23 +77,14 @@
                         <span>생년월일</span>
                         <select name="year">
                           <option>선택</option>
-                          <option>1981</option>
-                          <option>1982</option>
-                          <option>1983</option>
                         </select>
                         &nbsp;-&nbsp;
                         <select name="month">
                           <option>선택</option>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
                         </select>
                         &nbsp;-&nbsp;
                         <select name="date">
                           <option>선택</option>
-                          <option>29</option>
-                          <option>30</option>
-                          <option>31</option>
                         </select>
                       </label>
                         
@@ -126,7 +119,7 @@
         </article>
         <p>
             L.POINT 아이디 하나면, 모든 L.POINT 제휴사의 온라인/모바일을 편리하게 이용할 수 있습니다.
-            <a href="#">회원가입</a>
+            <a href="${path}/member/register">회원가입</a>
         </p>
       </div>
       </section>

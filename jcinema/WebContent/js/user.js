@@ -1,7 +1,7 @@
-
-// 회원가입
 $(document).ready(function(){
 	
+	// ------------------------------------------------
+	// 1. 회원가입
 	
 	// 회원가입 버튼 클릭시
 	$('#btnRegister').click(function(e){
@@ -28,9 +28,6 @@ $(document).ready(function(){
 			// 동의체크 
 			// 아이디 중복여부 확인
 			// 비밀번호 일치여부 확인 + 특문영어숫자
-			
-
-		
 		
 		// 데이터 전송하기
 		var jsonUserData = {
@@ -46,7 +43,6 @@ $(document).ready(function(){
 				'addr2'	: addr2
 		};
 		
-		
 		$.ajax({
 			url:'/jcinema/member/register',
 			type:'post',
@@ -60,8 +56,89 @@ $(document).ready(function(){
 		});
 		
 		
-		
 	});
+	
+	
+	
+	// ------------------------------------------------
+	// 2. 로그인(class탭변경)
+	  var tabMenu = $('.tab_btn > li');
+	  var tabContent = $('.tab > div');
+	  
+	  tabMenu.click(function(e){
+		  e.preventDefault();
+		  
+		  var i = $(this).index();
+		  
+		  tabMenu.removeClass().eq(i).addClass('on');
+		  tabContent.removeClass('on').eq(i).addClass('on');
+		  
+	  });
+	  
+	  // 로그인 빈칸채우기 알림
+//	  var userId = $('.tab1 input[name=uid]').val();
+//	  var userId = $('.tab1 input[name=uid]').val();
+//	  
+//	  $('input[type=submit]').click(function(){
+//		  
+//	  });
+	
+	
+	
+	// ------------------------------------------------
+	// 3. tab2 스크립트 
+	  
+	  // 생년월일 추가
+	  var year = $('select[name=year]');
+	  var month = $('select[name=month]');
+	  var date = $('select[name=date]');
+	  
+	  for(var y=1930; y<=2020; y++){
+	  	  year.append('<option>'+y+'</option>');
+	  }
+	  
+	  for(var m=1; m<=12; m++){
+	  	  month.append('<option>'+m+'</option>');
+	  }
+	  
+	  for(var d=1; d<=31; d++){
+	  	  date.append('<option>'+d+'</option>');
+	  }
+	  
+ 
+	  // 폼전송
+	  var form = $('.tab2 form');
+	  form.submit(function(){
+		  
+		var hp1 = $('select[name=hp1]').val();
+		var hp2 = $('input[name=hp2]').val();
+		var hp3 = $('input[name=hp3]').val();
+		
+		var year = $('select[name=year]').val();
+		var month = $('select[name=month]').val();
+		var date = $('select[name=date]').val();
+		  
+		  var hp = hp1+'-'+hp2+'-'+hp3;
+		  var birth = year+'-'+month+'-'+date;
+		  
+		  $('input[name=hp]').val(hp);
+		  $('input[name=birth]').val(birth);
+
+		  return ture;
+	  });
+	  
+
+	  
+	  
+	// ------------------------------------------------
+	// 4. 
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	  
