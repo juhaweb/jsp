@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- footer 시작 -->
-    <footer>
+    </div>
+	</div>
+	
+	<footer>
       <div class="banner1">
         <a href="#"><img src="${path}/img/showtime_banner_img1.jpg" alt=""></a>
       </div>

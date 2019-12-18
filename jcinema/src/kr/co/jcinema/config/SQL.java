@@ -60,6 +60,10 @@ public class SQL {
 	
 	
 	
+	// 관리자페이지
+	// 관리자 api
+	public static final String SELECT_THEATER = "SELECT `theater_no`,`theater_local_code`,`theater_name` FROM `JC_THEATER` WHERE `theater_city`=?; ";
+	public static final String SELECT_SCREEN = "SELECT * FROM `JC_SCREEN` WHERE `screen_theater_no`=?; ";
 	
 	
 	
@@ -68,7 +72,10 @@ public class SQL {
 	
 	
 	
-	// 아래는 수정전. 
+	
+	
+	
+	//   아래는 수정전.★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ 
 	
 	public static final String INSERT_USER  = "INSERT INTO `JC_MEMBER` SET "
 								  + "`uid`=?,"

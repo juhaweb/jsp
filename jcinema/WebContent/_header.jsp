@@ -46,9 +46,9 @@
       <div class="service">
         <article>
           <p>
-            <a href="https://github.com/juhaweb" target="_blank">모바일 APP</a>
-            <a href="https://naver.com" target="_blank">좋아요</a>
-            <a href="https://github.com/nsaedae/jsp" target="_blank">구독하기</a>
+            <a href="/jcinema/admin" target="_blank">모바일 APP</a>
+            <a href="/jcinema/admin" target="_blank">좋아요</a>
+            <a href="/jcinema/admin" target="_blank">구독하기</a>
           </p>
           <p>
               <c:choose>
