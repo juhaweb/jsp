@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- 헤더인클루드 -->
 <%@ include file="../_header.jsp" %>
+<script src="/jcinema/admin/js/api_theater_screen.js"></script>
 
 <section class="ticket-register">
     <nav>

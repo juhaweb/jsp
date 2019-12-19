@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="/jcinema/admin/js/sideMenu.js"></script>
-    
     <script src="/jcinema/admin/js/work.js"></script>
 </head>
 <body>
@@ -46,6 +45,7 @@
                             <ol>
                                 <li><a href="#">영화현황</a></li>
                                 <li><a href="/jcinema/admin/movie/register">영화등록</a></li>                                
+                                <li><a href="/jcinema/admin/movie/schedule">상영일정 등록</a></li>                                
                             </ol>
                         </li>
                         <li>

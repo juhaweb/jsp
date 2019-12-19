@@ -57,13 +57,15 @@ public class SQL {
 	// 영화관련
 	public static final String SELECT_POSTERS = "SELECT `movie_no`, `movie_title`,`movie_poster` FROM `JC_MOVIE` ORDER BY `movie_release_date` DESC LIMIT 10; ";
 	
+
 	
 	
 	
-	// 관리자페이지
-	// 관리자 api
-	public static final String SELECT_THEATER = "SELECT `theater_no`,`theater_local_code`,`theater_name` FROM `JC_THEATER` WHERE `theater_city`=?; ";
-	public static final String SELECT_SCREEN = "SELECT * FROM `JC_SCREEN` WHERE `screen_theater_no`=?; ";
+	
+	
+	
+	
+	
 	
 	
 	
