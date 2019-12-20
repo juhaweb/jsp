@@ -30,7 +30,7 @@ public class AdminMovieDAO {
 	public void insertMovie() throws Exception{}
 	public void updateMovie() throws Exception{}
 	public void deleteMovie() throws Exception{}
-	
+
 	public void selectMovieSchedules() throws Exception{}
 	public void selectMovieSchedule() throws Exception{}
 	

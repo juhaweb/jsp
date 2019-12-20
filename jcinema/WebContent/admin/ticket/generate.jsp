@@ -3,7 +3,7 @@
 <%@ include file="../_header.jsp" %>
 <script src="/jcinema/admin/js/api_theater_screen.js"></script>
 
-<section class="ticket-register">
+<section class="ticket-generate">
     <nav>
         <h3>티켓생성</h3>
         <p>티켓관리 > 티켓생성</p>
@@ -11,6 +11,8 @@
                                                             
     <article>
         <form action="#">
+        	<input type="text" name="theater_no">
+        	<input type="text" name="screen_no">
             <div class="field">
                 <label for="theater_city">영화관</label>
                 <select name="theater_city" id="theater_city">
@@ -34,16 +36,7 @@
                     <option value="00">선택</option>
                 </select>
             </div>
-            <div class="field">
-                <label for="movie_no">영화</label>
-                <select name="movie_no" id="movie_no">
-                    <option value="001">겨울왕국2</option>
-                    <option value="002">백두산</option>
-                    <option value="003">캣츠</option>
-                    <option value="004">시동</option>
-                    <option value="005">천문:하늘에 묻는다.</option>                                    
-                </select>
-            </div>
+            
             <div class="field">
                 <label for="movie_date">상영일</label>
                 <input id="movie_date" type="date" name="movie_date" />
@@ -51,12 +44,18 @@
             <div class="field">
                 <label for="round_view">상영회차</label>
                 <select name="round_view" id="round_view">
+                    <option value="0">상영회차 선택</option>
                     <option value="1">1회차</option>
                     <option value="2">2회차</option>
                     <option value="3">3회차</option>
                     <option value="4">4회차</option>
                     <option value="5">5회차</option>                                    
                 </select>
+            </div>
+            <div class="field">
+                <label for="movie_no">영화</label>
+                <input type="hidden" name="movie_no" readonly="readonly">
+                <input type="text" name="movie_title" readonly="readonly">
             </div>
             
             <div class="field">
@@ -65,7 +64,7 @@
                 <span>1인 1매 가격 예) 10000, 12000, 18000</span>
             </div>              
             
-            <button type="submit" class="btnRegister">등록하기</button>
+            <button type="submit" class="btnGenerate">생성하기</button>
         </form>
     </article>
 

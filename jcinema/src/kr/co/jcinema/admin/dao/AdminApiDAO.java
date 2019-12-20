@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.jcinema.admin.vo.MovieScheduleVO;
 import kr.co.jcinema.admin.vo.ScreenVO;
 import kr.co.jcinema.admin.vo.TheaterVO;
 import kr.co.jcinema.config.DBConfig;
@@ -92,7 +93,7 @@ public class AdminApiDAO {
 	public List<MovieVO> selectMovies(String title) throws Exception{
 		
 		Connection conn = DBConfig.getConnection();
-		PreparedStatement psmt = conn.prepareStatement(SQL_ADMIN.SELECT_MOVIE);
+		PreparedStatement psmt = conn.prepareStatement(SQL_ADMIN.SELECT_MOVIES);
 		psmt.setString(1, "%"+title+"%");
 		
 		ResultSet rs = psmt.executeQuery();
@@ -130,6 +131,39 @@ public class AdminApiDAO {
 	}	
 	
 	
+	public MovieScheduleVO selectMovie(String theater_no, String screen_no, String schedule_date, String round_view ) throws Exception{
+		
+		Connection conn = DBConfig.getConnection();
+		PreparedStatement psmt = conn.prepareStatement(SQL_ADMIN.SELECT_MOVIE_SCHEDULE);
+		
+		psmt.setString(1,  theater_no);
+		psmt.setString(2,  screen_no);
+		psmt.setString(3,  schedule_date);
+		psmt.setString(4,  round_view);
+		
+		ResultSet rs = psmt.executeQuery();
+		
+		MovieScheduleVO msv = null;
+		
+		if(rs.next()) {
+			
+			msv = new MovieScheduleVO();
+			
+			msv.setSchedule_theater_no(rs.getString(1));
+			msv.setSchedule_screen_no(rs.getString(2));
+			msv.setSchedule_movie_no(rs.getString(3));
+			msv.setSchedule_date(rs.getString(4));
+			msv.setSchedule_start_time(rs.getString(5));
+			msv.setSchedule_end_time(rs.getString(6));
+			msv.setSchedule_round_view(rs.getString(7));
+			msv.setMovie_title(rs.getString(8));
+
+			
+		}
+		
+		return msv;
+		
+	}
 	
 	
 	

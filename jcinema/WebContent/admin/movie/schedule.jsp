@@ -30,9 +30,9 @@
                         
     <article>
         <form action="/jcinema/admin/movie/schedule" method="post">
-        <input type="text" name="theater_no" value="0"/>
-        <input type="text" name="screen_no" value="0"/>
-        <input type="text" name="schedule_movie_no" value="0"/>
+        <input type="hidden" name="theater_no" value="0"/>
+        <input type="hidden" name="screen_no" value="0"/>
+        <input type="hidden" name="schedule_movie_no" value="0"/>
         
             <div class="field">
                 <label for="theater_city">영화관</label>
