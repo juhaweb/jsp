@@ -5,8 +5,8 @@
 
 <section class="ticket-register">
     <nav>
-        <h3>티켓등록</h3>
-        <p>티켓관리 > 티켓등록</p>
+        <h3>티켓생성</h3>
+        <p>티켓관리 > 티켓생성</p>
     </nav>
                                                             
     <article>

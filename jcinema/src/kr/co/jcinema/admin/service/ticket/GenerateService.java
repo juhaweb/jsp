@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.jcinema.controller.CommonService;
 
-public class RegisterService implements CommonService{
+public class GenerateService implements CommonService{
 
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-		return "/admin/ticket/register.jsp";
+		return "/admin/ticket/generate.jsp";
 	}
 
 }
