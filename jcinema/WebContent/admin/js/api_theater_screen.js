@@ -5,11 +5,19 @@ $(function(){
 	var theater_city = $('#theater_city');
 	var theater_name = $('#theater_name');
 	var screen_name = $('#screen_name');
+	var movie_no 	 = $('#movie_no');
+	var movie_date 	 = $('#movie_date');
+	var round_view 	 = $('#round_view');
+	var price 		 = $('#price');
 
 
 	// 비활성화
 	theater_name.attr('disabled',true);
 	screen_name.attr('disabled',true);
+	movie_no.attr('disabled', true);
+	movie_date.attr('disabled', true);
+	round_view.attr('disabled', true);
+	price.attr('disabled', true);
 
 	
 	// 영화관 지역선택할 때 극장정보 서버로부터 가져오기.
@@ -28,13 +36,11 @@ $(function(){
 				theater_name.append('<option value="'+data[i].theater_no+'">'+data[i].theater_name+'</option>');
 			}
 			
-			theater_name.attr('disabled',false);
+			theater_name.attr('disabled', false);
+			screen_name.attr('disabled', false);
 
 		});				
 
-		// 영화관을 선택하고 input[name=theater_no]에 영화관 번호 입력
-
-		
 	});
 	
 	
@@ -54,13 +60,24 @@ $(function(){
 				screen_name.append('<option value="'+data[i].screen_no+'">'+data[i].screen_name+'</option>');
 			}
 			
-			screen_name.attr('disabled',false);
+			movie_no.attr('disabled',false);
 			
 		});
-		
-		// 상영관을 선택하고 input[name=screen_no]에 영화관 번호 입력
 
+		
+		// 영화관을 선택하고 input[name=theater_no]에 영화관 번호 입력
+		var theater_no = $(this).val();
+		$('input[name=theater_no]').val(theater_no);
+		
 	});
+	
+	screen_name.change(function(){
+		
+		var screen_no = $(this).val();
+		$('input[name=screen_no]').val(screen_no);
+		
+	});
+	
 	
 		
 	// movie - schedule - #searchBg 영화검색 팝업창
@@ -78,6 +95,8 @@ $(function(){
 		e.preventDefault();
 		searchBg.hide();
 	});
+	
+		
 	
 	
 	// movie - schedule - .btnSearch 영화검색 팝업창 내부.... 
@@ -108,7 +127,7 @@ $(function(){
 			
 		});
 			
-	}); // movie - schedule - btnenddddddd	
+	}); // movie - schedule -  btnSearch end
 		
 	// btnChoice에 대한 동적이벤트 구현
 		$(document).on('click','.btnChoice',function(){
@@ -117,6 +136,7 @@ $(function(){
 			var movieNo = $(this).attr('data-movie-no')
 			
 			$('#schedule_movie').val(title);
+			
 			// 영화번호를 선택하고 영화번호 input[name=schedule_movie_no] 에 영화번호 입력
 			$('input[name=schedule_movie_no]').val(movieNo);
 			

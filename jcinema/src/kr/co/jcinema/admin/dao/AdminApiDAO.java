@@ -98,6 +98,7 @@ public class AdminApiDAO {
 		ResultSet rs = psmt.executeQuery();
 		
 		List<MovieVO> movies = new ArrayList<>();
+		
 		while(rs.next()){
 			
 			MovieVO mvo = new MovieVO();

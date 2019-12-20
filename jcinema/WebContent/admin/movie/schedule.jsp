@@ -2,6 +2,7 @@
 <!-- 헤더인클루드 -->
 <%@ include file="../_header.jsp" %>
 <script src="/jcinema/admin/js/api_theater_screen.js"></script>
+
 <section class="movie-schedule">
 
     <div id="searchBg">
@@ -32,6 +33,7 @@
         <input type="text" name="theater_no" value="0"/>
         <input type="text" name="screen_no" value="0"/>
         <input type="text" name="schedule_movie_no" value="0"/>
+        
             <div class="field">
                 <label for="theater_city">영화관</label>
                 <select name="theater_city" id="theater_city">
