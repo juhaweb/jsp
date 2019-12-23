@@ -22,17 +22,14 @@ public class GenerateService implements CommonService{
 			String theater_no	 = req.getParameter("theater_no");
 			String screen_no	 = req.getParameter("screen_no");
 			String movie_no 	 = req.getParameter("movie_no");
-			String movie_date 	 = req.getParameter("movie_date");
+			String movie_date 	 = req.getParameter("movie_date").substring(2).replace("-","");
 			String round_view 	 = req.getParameter("round_view");
 			String price 	 	 = req.getParameter("price");
 			
-			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
-			String today = sdf.format(new Date());
-			
-			
+		
 			// 萍南 内靛积己
 			char[] seat_alphabet = {'A','B','C','D','E','F','G','H'};
-			String ticket_no = theater_no+screen_no+movie_no+today+round_view;
+			String ticket_no = theater_no+screen_no+movie_no+movie_date+round_view;
 			
 			AdminTicketDAO dao = AdminTicketDAO.getInstance();
 			
@@ -53,7 +50,7 @@ public class GenerateService implements CommonService{
 				tvo.setTicket_movie_date(movie_date);
 				tvo.setTicket_round_view(round_view);
 				tvo.setTicket_theater_no(theater_no);
-				tvo.setTicket_screen_no(screen_no);			
+				tvo.setTicket_screen_no(screen_no);
 				tvo.setTicket_seat(seat_alphabet[row-1]+""+col);
 				tvo.setTicket_price(price);
 				
