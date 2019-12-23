@@ -8,7 +8,7 @@
   <div class="slider">
     <div>
       <ul class="bxslider">
-        <li><img src="${path}/img/slider_banner_poster1.jpg" alt="겨울왕국2"></li>
+    	<li><img src="${path}/img/slider_banner_poster1.jpg" alt="겨울왕국2"></li>
         <li><img src="${path}/img/slider_banner_poster2.jpg" alt="조커"></li>
         <li><img src="${path}/img/slider_banner_poster3.jpg" alt="82년생 김지영"></li>
         <li><img src="${path}/img/slider_banner_poster4.jpg" alt="가장 보통의 연애"></li>

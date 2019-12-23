@@ -38,6 +38,16 @@ public class SQL_ADMIN {
 	// 搬力包府
 	
 	// 萍南包府
+	public static final String INSERT_TICKET = "INSERT INTO `JC_TICKET` SET "
+											 + "`ticket_no`=?,"
+											 + "`ticket_movie_no`=?,"
+											 + "`ticket_movie_date`=?,"
+											 + "`ticket_round_view`=?,"
+											 + "`ticket_theater_no`=?,"
+											 + "`ticket_screen_no`=?,"
+											 + "`ticket_seat`=?,"
+											 + "`ticket_is_valid`=1,"
+											 + "`ticket_price`=?; ";
 	
 	// 康拳包 包府
 	
