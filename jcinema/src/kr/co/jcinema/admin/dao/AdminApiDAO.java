@@ -7,13 +7,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.co.jcinema.admin.vo.MovieScheduleVO;
 import kr.co.jcinema.admin.vo.ScreenVO;
 import kr.co.jcinema.admin.vo.TheaterVO;
 import kr.co.jcinema.config.DBConfig;
-import kr.co.jcinema.config.SQL;
 import kr.co.jcinema.config.SQL_ADMIN;
 import kr.co.jcinema.vo.MovieVO;
 
@@ -25,6 +26,62 @@ public class AdminApiDAO {
 		return instance;	
 	}
 	private AdminApiDAO() {}
+	
+	
+	// 전체 극장 선택
+	public Map<String, List<TheaterVO>> selectTheaters() throws Exception{
+		
+		Connection conn = DBConfig.getConnection();
+		PreparedStatement psmt = conn.prepareStatement(SQL_ADMIN.SELECT_THEATERS);
+		
+		ResultSet rs = psmt.executeQuery();
+		
+		Map<String, List<TheaterVO>> map = new HashMap<>();
+		List<TheaterVO> list = null;
+		
+		boolean isStart = true; 	//상태변수:
+		int totalListCount = 0;
+			
+		while(rs.next()) {
+			
+			if(isStart){
+				list = new ArrayList<TheaterVO>();
+				isStart = false;	// 리스트 만들어졌으니 false로..
+			}
+			// list = new ArrayList<TheaterVO>();  여기서 돌려버리면 리스트 70개 생성됨.....
+
+			
+			TheaterVO tvo = new TheaterVO();
+			
+			String city = rs.getString(4);
+			int count = rs.getInt(8);
+			
+			tvo.setTheater_no(rs.getInt(1));
+			tvo.setTheater_local_code(rs.getInt(2));
+			tvo.setTheater_name(rs.getString(3));
+			tvo.setTheater_city(rs.getString(4));
+			tvo.setTheater_addr(rs.getString(5));
+			tvo.setTheater_tel(rs.getString(6));
+			tvo.setTheater_screen_count(rs.getInt(7));
+			
+			list.add(tvo);
+			
+			totalListCount++;
+			
+			if(totalListCount == count) {
+				map.put(city, list);
+				totalListCount = 0;
+				isStart = true;	//여기서 다시 트루로. 
+			}	
+			
+		}
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return map;
+	}
+	
 	
 	
 	// 영화선택

@@ -9,6 +9,7 @@
     <!--예매-->
     <div class="theater">
       <article>
+
         <!-- 사이드배너-->
         <a class="side-banner left"  href="#"><img src="${path}/img/ticketing_side_banner_event.png" alt=""></a>
         <a class="side-banner right" href="#"><img src="${path}/img/ticketing_side_banner_event2.png" alt=""></a> 
@@ -57,55 +58,39 @@
             </div>
             <article>
               <h4>전체영화관</h4>
-              <ul>
+              <ul class="theaters">
                 <li class="active">
-                  <a href="#">서울(24)</a>
-                  <ol class="on">
-                    <li class="chk"><a href="#">가산디지털</a></li>
-                    <li><a href="#">가양</a></li>
-                    <li><a href="#">강동</a></li>
-                    <li><a href="#">건대입구</a></li>
-                    <li><a href="#">김포공항</a></li>
-                    <li><a href="#">노원</a></li>
-                    <li><a href="#">독산</a></li>
-                    <li><a href="#">신도림</a></li>
-                    <li><a href="#">영등포</a></li>
-                    <li><a href="#">월드타워</a></li>
-                    <li><a href="#">용산</a></li>
-                  </ol>
+                  <a href="#">서울(23)</a>
+                  <ol class="on"></ol>
                 </li>
                 <li>
                   <a href="#">경기/인천(44)</a>
+                  <ol></ol>
                 </li>
                 <li>
                   <a href="#">충청/대전(10)</a>
+                  <ol></ol>
                 </li>
                 <li>
                   <a href="#">전라/광주(9)</a>
+                  <ol></ol>
                 </li>
                 <li>
                   <a href="#">경북/대구(16)</a>
+                  <ol></ol>
                 </li>
                 <li>
                 <a href="#">경남/부산/울산(22)</a>
-                  <ol>
-                    <li><a href="#">광복</a></li>
-                    <li><a href="#">동래</a></li>
-                    <li><a href="#">대영</a></li>
-                    <li><a href="#">동부산아울렛</a></li>
-                    <li><a href="#">사상</a></li>
-                    <li><a href="#">마산터미널</a></li>
-                    <li><a href="#">부산본점</a></li>
-                    <li><a href="#">센텀시티</a></li>
-                    <li><a href="#">서면</a></li>
-                    <li><a href="#">오투</a></li>
-                    <li><a href="#">창원</a></li>
-                  </ol>
+                <ol></ol>
                 </li>
                 <li>
                   <a href="#">강원(3)</a>
+                  <ol></ol>
                 </li>
-                <li><a href="#">제주(3)</a></li>
+                <li>
+                  <a href="#">제주(3)</a>
+                  <ol></ol>
+                </li>
               </ul>
             </article>
 

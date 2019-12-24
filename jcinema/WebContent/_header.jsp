@@ -75,9 +75,9 @@
         <article>
           <ul>
             <li class="on"><a href="${path}/ticketing/choice-movie">예매</a></li>
-            <li><a href="#">영화</a></li>
-            <li><a href="#">영화관</a></li>
-            <li><a href="#">이벤트</a></li>
+            <li><a href="${path}/ticketing/choice-seat">영화</a></li>
+            <li><a href="${path}/ticketing/order-confirm">영화관</a></li>
+            <li><a href="${path}/ticketing/order-result">이벤트</a></li>
             <li><a href="#">제이몰</a></li>
             <li><a href="#">VOD</a></li>
           </ul>

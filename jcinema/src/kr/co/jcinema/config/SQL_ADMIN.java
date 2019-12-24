@@ -7,6 +7,13 @@ public class SQL_ADMIN {
 	
 	// 包府磊其捞瘤
 	// 包府磊 api
+	public static final String SELECT_THEATERS = "SELECT b.*, a.theater_count "
+												+ "FROM `JC_THEATER` AS b, "
+												+ "(SELECT theater_city, COUNT(`theater_city`) AS theater_count "
+												+ "FROM `JC_THEATER` GROUP BY `theater_city`) AS a "
+												+ "WHERE b.theater_city = a.theater_city " 
+												+ "ORDER BY `theater_city`; ";
+	
 	public static final String SELECT_THEATER = "SELECT `theater_no`,`theater_local_code`,`theater_name` FROM `JC_THEATER` WHERE `theater_city`=?; ";
 	public static final String SELECT_SCREEN = "SELECT * FROM `JC_SCREEN` WHERE `screen_theater_no`=?; ";
 	public static final String SELECT_MOVIES = "SELECT * FROM `JC_MOVIE` WHERE `movie_title` LIKE ?; ";
