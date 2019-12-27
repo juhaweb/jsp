@@ -91,11 +91,19 @@
 #sub.choice-movie > .showtime .info > .infoDate {}
 #sub.choice-movie > .showtime .info > .infoTheater {font-size:13px;display:inline-block; background:#e5e0cb; border:1px solid #bab093; margin-right:20px;}
 #sub.choice-movie > .showtime .info > .infoMovie {font-size:13px;display:inline-block; background:#e5e0cb; border:1px solid #bab093; margin-right:20px;}
-#sub.choice-movie > .showtime section {width:980px; height:auto;padding:40px 0px;}
+#sub.choice-movie > .showtime section {width:980px; height:auto; padding:40px 0px;}
 #sub.choice-movie > .showtime section > h1 {font-size:24px;}
 #sub.choice-movie > .showtime section > h1 > span {font-size:12px; margin-left:10px;}
-#sub.choice-movie > .showtime section > .nodata {display:block; width:980px;height:400px; line-height: 400px;  text-align: center;}
-#sub.choice-movie > .showtime .banner {}
+#sub.choice-movie > .showtime section > .nodata {display:block; width:980px; height:400px; line-height: 400px;  text-align: center;}
+
+/* 예매 - 상영시간 선택 */
+#sub.choice-movie > .showtime section > .round_view {margin-top: 20px;	overflow: hidden;}
+#sub.choice-movie > .showtime section > .round_view > li {float: left;	width: 115px;	height: 90px;	margin-right: 4px;	border: 1px solid #e5e5e5;	}
+#sub.choice-movie > .showtime section > .round_view > li:hover  span {background-color: #231f20;color: #fff;}
+#sub.choice-movie > .showtime section > .round_view > li > a {}
+#sub.choice-movie > .showtime section > .round_view > li > a > span {display: block;font-size: 12px;color: #666;text-align: center;padding: 7px 0;}
+#sub.choice-movie > .showtime section > .round_view > li > a > span:nth-child(2) {font-size: 15px;font-weight: bold;border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;}
+#sub.choice-movie > .showtime section > .round_view > li > a > span > em {}
 
 
 /* choice-seat.html 좌석선택 */

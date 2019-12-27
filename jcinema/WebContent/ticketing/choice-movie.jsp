@@ -17,6 +17,10 @@
         <!-- 날짜선택 캘린더 -->                    
         <div class="calendar">
 
+		<input type="text" name="movie_date"/> 
+		<input type="text" name="theater_no"/> 
+		<input type="text" name="movie_no"/> 
+		
           <nav>
             <span class="month">12</span>
             <span class="year">2019 December</span>
@@ -101,36 +105,18 @@
             <div>
             <h3>영화</h3>
             <span><strong>·&nbsp;최대 1개</strong>까지 선택 가능</span>
-          </div>
+          	</div>
 
-          <div>
-            <p>
-            <a class="on" href="#">예매순</a>
-            <a href="#">평점순</a>
-            </p>
-          </div>
+	        <div>
+	          <p>
+	          <a class="on" href="#">예매순</a>
+	          <a href="#">평점순</a>
+	          </p>
+	        </div>
 
-          <article>
-            <ul>                                    
-              <li><a href="#"><span class="grade gradeAll">all</span><span class="tit">겨울왕국2</span></a></li>
-              <li><a href="#"><span class="grade grade12">12</span><span class="tit">나를 찾아줘</span></a></li>
-              <li><a href="#"><span class="grade grade15">15</span><span class="tit">블랙머니</span></a></li>
-              <li><a href="#"><span class="grade grade18">18</span><span class="tit">굿라이어</span></a></li>
-              <li><a href="#"><span class="grade grade19">19</span><span class="tit">프란치스코</span></a></li>
-              <li><a href="#"><span class="grade gradeAll">all</span><span class="tit">겨울왕국2</span></a></li>
-              <li><a href="#"><span class="grade grade12">12</span><span class="tit">나를 찾아줘</span></a></li>
-              <li><a href="#"><span class="grade grade15">15</span><span class="tit">블랙머니</span></a></li>
-              <li><a href="#"><span class="grade grade18">18</span><span class="tit">굿라이어</span></a></li>
-              <li><a href="#"><span class="grade grade19">19</span><span class="tit">프란치스코</span></a></li>
-              <li><a href="#"><span class="grade gradeAll">all</span><span class="tit">겨울왕국2</span></a></li>
-              <li><a href="#"><span class="grade grade12">12</span><span class="tit">나를 찾아줘</span></a></li>
-              <li><a href="#"><span class="grade grade15">15</span><span class="tit">블랙머니</span></a></li>
-              <li><a href="#"><span class="grade grade18">18</span><span class="tit">굿라이어</span></a></li>
-              <li><a href="#"><span class="grade grade19">19</span><span class="tit">프란치스코</span></a></li>
-              <li><a href="#"><span class="grade gradeAll">all</span><span class="tit">겨울왕국2</span></a></li>
-              <li><a href="#"><span class="grade grade12">12</span><span class="tit">나를 찾아줘</span></a></li>
-            </ul>
-          </article>
+            <article>
+	            <ul></ul>
+            </article>
           <!-- 영화선택 끝 -->
 
           </div>
@@ -155,6 +141,37 @@
         <section>
           <h1>상영시간<span>예고편 상영 등으로 시작이 10여분 정도 차이 날 수 있습니다.</span></h1>
           <p class="nodata">상영시간이 조회되지 않았습니다. </p>
+          
+          <ul class="round_view">
+		  		<li>
+					<a href="#">
+						<span>1회차</span>
+						<span>09:00 ~ 11:00</span>
+						<span><em>24</em>석/<em>80</em>석</span>
+					</a>                	
+				</li>
+				<li>
+					<a href="#">
+						<span>1회차</span>
+						<span>09:00 ~ 11:00</span>
+						<span><em>24</em>석/<em>80</em>석</span>
+					</a>                	
+				</li>
+				<li>
+					<a href="#">
+						<span>1회차</span>
+						<span>09:00 ~ 11:00</span>
+						<span><em>24</em>석/<em>80</em>석</span>
+					</a>                	
+				</li>
+				<li>
+					<a href="#">
+						<span>1회차</span>
+						<span>09:00 ~ 11:00</span>
+						<span><em>24</em>석/<em>80</em>석</span>
+					</a>                	
+				</li>
+			</ul>
         </section>               
       </article>
     </div>

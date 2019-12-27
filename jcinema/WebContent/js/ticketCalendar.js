@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
+  var $a 	 = $(".calendar a");
   var $month = $(".calendar .month");
-  var $year = $(".calendar .year");
-  var $a = $(".calendar a");
+  var $year	 = $(".calendar .year");
+  
 
   var d = new Date();
   var year = d.getFullYear();
@@ -53,13 +54,23 @@ $(document).ready(function(){
   }); //each 끝
 
 
-
-
-
   //날짜선택 on 하이라이트
   $a.eq(0).parent().addClass('on');
 
+  //날짜를 클릭하면 동그라미 강조
+  $a.click(function(e){
+      e.preventDefault();
+      
+      $a.parent().removeClass('on');
+      $(this).parent().addClass('on');
 
+      // 날짜입력 필드에 선택된 날짜 movie_date 입력 (내년에 내년으로 넘어가는거 해야함...)      
+      var today = $(this).children().eq(1).text();
+      $('input[name=movie_date]').val(year+'-'+(month+1)+'-'+today);
+      
+  });
+  
+  
 
 
 });

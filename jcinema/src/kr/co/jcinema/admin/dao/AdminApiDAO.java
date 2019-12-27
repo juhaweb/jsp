@@ -166,15 +166,16 @@ public class AdminApiDAO {
 			mvo.setMovie_grade(rs.getString(3));
 			mvo.setMovie_company(rs.getString(4));
 			mvo.setMovie_score(rs.getDouble(5));
-			mvo.setMovie_release_date(rs.getString(6));
-			mvo.setMovie_genre(rs.getString(7));
-			mvo.setMovie_country(rs.getString(8));
-			mvo.setMovie_running_time(rs.getInt(9));
-			mvo.setMovie_homepage(rs.getString(10));
-			mvo.setMovie_poster(rs.getString(11));
-			mvo.setMovie_desc(rs.getString(12));
-			mvo.setMovie_director(rs.getString(13));
-			mvo.setMovie_actor(rs.getString(14));
+			mvo.setMovie_ticket_rate(rs.getDouble(6));
+			mvo.setMovie_release_date(rs.getString(7));
+			mvo.setMovie_genre(rs.getString(8));
+			mvo.setMovie_country(rs.getString(9));
+			mvo.setMovie_running_time(rs.getInt(10));
+			mvo.setMovie_homepage(rs.getString(11));
+			mvo.setMovie_poster(rs.getString(12));
+			mvo.setMovie_desc(rs.getString(13));
+			mvo.setMovie_director(rs.getString(14));
+			mvo.setMovie_actor(rs.getString(15));
 
 			movies.add(mvo);
 		}

@@ -7,6 +7,7 @@ public class MovieVO {
 	private String movie_grade;
 	private String movie_company;
 	private Double movie_score;
+	private Double movie_ticket_rate;
 	private String movie_release_date;
 	private String movie_genre;
 	private String movie_country;
@@ -16,7 +17,6 @@ public class MovieVO {
 	private String movie_desc;
 	private String movie_director;
 	private String movie_actor;
-	
 	
 	public int getMovie_no() {
 		return movie_no;
@@ -47,6 +47,12 @@ public class MovieVO {
 	}
 	public void setMovie_score(Double movie_score) {
 		this.movie_score = movie_score;
+	}
+	public Double getMovie_ticket_rate() {
+		return movie_ticket_rate;
+	}
+	public void setMovie_ticket_rate(Double movie_ticket_rate) {
+		this.movie_ticket_rate = movie_ticket_rate;
 	}
 	public String getMovie_release_date() {
 		return movie_release_date;
@@ -102,7 +108,6 @@ public class MovieVO {
 	public void setMovie_actor(String movie_actor) {
 		this.movie_actor = movie_actor;
 	}
-	
 	
 	
 	

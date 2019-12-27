@@ -46,16 +46,24 @@ public class SQL {
 	public static final String SELECT_LOGIN = "SELECT * FROM `JC_MEMBER` WHERE `user_id`=? AND `user_pass`=PASSWORD(?);";
 	
 	
-	
+
 	
 	
 	// 예매관련(티켓)
+	public static final String SELECT_MOVIES_BY_THEATER = "SELECT * FROM `JC_MOVIE_SCHEDULE` AS a " 
+		 												+ "JOIN `JC_MOVIE` AS b "
+														+ "ON a.schedule_movie_no = b.movie_no " 
+														+ "WHERE a.schedule_theater_no=? AND a.schedule_date=? "
+														+ "GROUP BY a.schedule_movie_no "
+														+ "ORDER BY b.movie_ticket_rate DESC, b.movie_release_date DESC; ";
 	
-	
-	
+	public static final String SELECT_MOVIES_ROUND_VIEW = "SELECT * FROM `JC_MOVIE_SCHEDULE` " 
+														+ "WHERE `schedule_date`='2019-12-29' AND `schedule_theater_no`=? AND `schedule_movie_no`=? " 
+														+ "GROUP BY `schedule_screen_no` ASC, `schedule_round_view` ASC; ";
 	
 	// 영화관련
 	public static final String SELECT_POSTERS = "SELECT `movie_no`, `movie_title`,`movie_poster` FROM `JC_MOVIE` ORDER BY `movie_release_date` DESC LIMIT 10; ";
+	
 	
 
 	

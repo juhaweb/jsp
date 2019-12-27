@@ -19,8 +19,7 @@ public class MovieScheduleVO {
 	public void setMovie_title(String movie_title) {
 		this.movie_title = movie_title;
 	}
-	
-	
+
 	//
 	
 	public String getSchedule_theater_no() {
