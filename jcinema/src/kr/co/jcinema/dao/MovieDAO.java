@@ -24,32 +24,7 @@ public class MovieDAO {
 	private MovieDAO() {}
 
 	
-	// ★ 포스터 선택 (메인 좌롤링배너 10개)
-	
-	public List<MovieVO> selectPosters() throws Exception {
-		
-		Connection conn = DBConfig.getConnection();
-		Statement stmt = conn.createStatement();
-		
-		ResultSet rs= stmt.executeQuery(SQL.SELECT_POSTERS);
-		
-		List<MovieVO> movies = new ArrayList<>();
-		while(rs.next()) {
-			
-			MovieVO mvo = new MovieVO();
-			mvo.setMovie_no(rs.getInt(1));
-			mvo.setMovie_title(rs.getString(2));
-			mvo.setMovie_poster(rs.getString(3));
-			
-			movies.add(mvo);
-		}
-		
-		rs.close();
-		stmt.close();
-		conn.close();
-		
-		return movies;
-	}
+
 	
 	
 	
@@ -67,11 +42,9 @@ public class MovieDAO {
 		ResultSet rs = psmt.executeQuery();
 		
 		List<MovieVO> movies = new ArrayList<MovieVO>();
-		MovieVO vo = null;
 		
 		while(rs.next()) {
-			vo = new MovieVO();
-			
+			MovieVO vo = new MovieVO();			
 			vo.setMovie_no(rs.getInt(3));
 			vo.setMovie_title(rs.getString(9));
 			vo.setMovie_grade(rs.getString(10));	
@@ -101,10 +74,12 @@ public class MovieDAO {
 		
 		ResultSet rs = psmt.executeQuery();
 		
-		List<MovieScheduleVO> movies = new ArrayList<MovieScheduleVO>();
+		List<MovieScheduleVO> movies = new ArrayList<>();
 		
 		while(rs.next()) {
+			
 			MovieScheduleVO msv = new MovieScheduleVO();
+			
 			msv.setSchedule_theater_no(rs.getString(1));	
 			msv.setSchedule_screen_no(rs.getString(2));	
 			msv.setSchedule_movie_no(rs.getString(3));	
@@ -138,7 +113,32 @@ public class MovieDAO {
 	
 	
 	
+	// ★ 포스터 선택 (메인 좌롤링배너 10개)
 	
+	public List<MovieVO> selectPosters() throws Exception {
+		
+		Connection conn = DBConfig.getConnection();
+		Statement stmt = conn.createStatement();
+		
+		ResultSet rs= stmt.executeQuery(SQL.SELECT_POSTERS);
+		
+		List<MovieVO> movies = new ArrayList<>();
+		while(rs.next()) {
+			
+			MovieVO mvo = new MovieVO();
+			mvo.setMovie_no(rs.getInt(1));
+			mvo.setMovie_title(rs.getString(2));
+			mvo.setMovie_poster(rs.getString(3));
+			
+			movies.add(mvo);
+		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
+		
+		return movies;
+	}
 	
 	
 	

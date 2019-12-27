@@ -34,6 +34,7 @@ $(document).ready(function(){
 		$('input[name=theater_no]').val(theater_no);
 		
 		var schedule_date = $('input[name=movie_date]').val();
+		
 		var url ="/jcinema/api/movies?theater_no="+theater_no+"&schedule_date="+schedule_date;
 		var movie_list = $(".rank > article > ul");	
 		
@@ -58,10 +59,12 @@ $(document).ready(function(){
 				}
 				
 				movie_list.append(
-					"<li data-movie-no='"+value.movie_no+"'><a href='#'>"+
+					"<li data-movie-no='"+value.movie_no+"'>" +
+					"<a href='#'>"+
 					"<span class='grade "+grade+"'></span>"+
 					"<span class='tit'>"+value.movie_title+"</span>"+
-					"</a></li>"
+					"</a>" +
+					"</li>"
 				);
 				
 			});
@@ -71,23 +74,24 @@ $(document).ready(function(){
 	});
 	
 	// 영화선택 동적이벤트 
-	$(document).on('click','.rank > article > ul > li', function(e){
+	$(document).on('click', '.rank > article > ul > li', function(e){
 		e.preventDefault();
 		
-		var movie_no = $(this).attr('data-movie-no');
+		var movie_no = $(this).attr('data-movie-no');			
 		var schedule_date = $('input[name=movie_date]').val();
 		var schedule_theater_no = $('input[name=theater_no]').val();
 		
-			
-		var url = "/jcinema/api/movies-schedule";
-		var param = {"schedule_date":schedule_date,
-					"schedule_theater_no":schedule_theater_no,
-					"schedule_movie_no":movie_no}; 
+		var url = "/jcinema/api/movies-schedule";			
+		var param = {"schedule_date": schedule_date, 
+					 "schedule_theater_no": schedule_theater_no, 
+					 "schedule_movie_no": movie_no}; 
 		
-		$.get(url,param,function(data){
+		
+		$.get(url, param, function(data){
+			
+			
 			
 		});
-		
 		
 		
 	});

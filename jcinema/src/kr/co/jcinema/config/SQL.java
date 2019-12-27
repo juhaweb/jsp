@@ -58,8 +58,8 @@ public class SQL {
 														+ "ORDER BY b.movie_ticket_rate DESC, b.movie_release_date DESC; ";
 	
 	public static final String SELECT_MOVIES_ROUND_VIEW = "SELECT * FROM `JC_MOVIE_SCHEDULE` " 
-														+ "WHERE `schedule_date`='2019-12-29' AND `schedule_theater_no`=? AND `schedule_movie_no`=? " 
-														+ "GROUP BY `schedule_screen_no` ASC, `schedule_round_view` ASC; ";
+														+ "WHERE `schedule_date`=? AND `schedule_theater_no`=? AND `schedule_movie_no`=? " 
+														+ "ORDER BY `schedule_screen_no` ASC, `schedule_round_view` ASC; ";
 	
 	// 영화관련
 	public static final String SELECT_POSTERS = "SELECT `movie_no`, `movie_title`,`movie_poster` FROM `JC_MOVIE` ORDER BY `movie_release_date` DESC LIMIT 10; ";
