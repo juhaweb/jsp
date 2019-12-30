@@ -28,7 +28,7 @@
 
           <div>
             <ul>
-              <li class="day on"><a href="#"><em></em><span></span></a></li>
+              <li class="day on"><a href="#" data-date=""><em></em><span></span></a></li>
               <li class="day"><a href="#"><em></em><span></span></a></li>
               <li class="day"><a href="#"><em></em><span></span></a></li>
               <li class="day"><a href="#"><em></em><span></span></a></li>
@@ -140,38 +140,12 @@
 
         <section>
           <h1>상영시간<span>예고편 상영 등으로 시작이 10여분 정도 차이 날 수 있습니다.</span></h1>
+          
           <p class="nodata">상영시간이 조회되지 않았습니다. </p>
           
           <ul class="round_view">
-		  		<li>
-					<a href="#">
-						<span>1회차</span>
-						<span>09:00 ~ 11:00</span>
-						<span><em>24</em>석/<em>80</em>석</span>
-					</a>                	
-				</li>
-				<li>
-					<a href="#">
-						<span>1회차</span>
-						<span>09:00 ~ 11:00</span>
-						<span><em>24</em>석/<em>80</em>석</span>
-					</a>                	
-				</li>
-				<li>
-					<a href="#">
-						<span>1회차</span>
-						<span>09:00 ~ 11:00</span>
-						<span><em>24</em>석/<em>80</em>석</span>
-					</a>                	
-				</li>
-				<li>
-					<a href="#">
-						<span>1회차</span>
-						<span>09:00 ~ 11:00</span>
-						<span><em>24</em>석/<em>80</em>석</span>
-					</a>                	
-				</li>
-			</ul>
+          </ul>
+          
         </section>               
       </article>
     </div>

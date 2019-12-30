@@ -23,12 +23,14 @@ public class MoviesScheduleService implements CommonService{
 		
 		// ´Ù¿À !! 
 		MovieDAO dao = MovieDAO.getInstance();
-		List<MovieScheduleVO> movies = dao.selectMovieRoundView(schedule_date, theater_no, movie_no);
+		List<List<MovieScheduleVO>> movies = dao.selectMovieRoundView(schedule_date, theater_no, movie_no);
 		
 		String json = new Gson().toJson(movies);
 		
 		return json;
 		
+		
+		// http://localhost:8085/jcinema/api/movies-schedule?schedule_date=2020-01-04&theater_no=24&movie_no=56
 	}
 
 	

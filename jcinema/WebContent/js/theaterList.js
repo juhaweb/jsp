@@ -83,13 +83,36 @@ $(document).ready(function(){
 		
 		var url = "/jcinema/api/movies-schedule";			
 		var param = {"schedule_date": schedule_date, 
-					 "schedule_theater_no": schedule_theater_no, 
-					 "schedule_movie_no": movie_no}; 
+					 "theater_no": schedule_theater_no, 
+					 "movie_no": movie_no}; 
+		
+		var showtime_round_view	= $('.showtime .round_view');
+		var showtime_nodata		= $('.showtime .nodata');
 		
 		
 		$.get(url, param, function(data){
 			
-			
+			if(data.length > 0){
+				//데이터가 있을때 .nodata 삭제 
+				showtime_nodata.remove();
+				showtime_round_view.empty();
+ 
+			$.each(data,function(i,obj){
+				 
+				if(obj.schedule)
+				showtime_round_view.append("<li>" +
+											"<a href='#'>"+
+											"<span>"+obj.schedule_round_view+"회차</span>"+
+											"<span>"+obj.schedule_start_time.substring(0,5)+" ~ "+obj.schedule_end_time.substring(0,5)+"</span>"+
+											"<span><em>24</em>석/<em>80</em>석</span>"+
+											"</a>" +
+											"</li>"
+											);
+				
+				
+			});	
+				
+			}
 			
 		});
 		

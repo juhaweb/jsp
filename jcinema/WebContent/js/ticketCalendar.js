@@ -44,11 +44,18 @@ $(document).ready(function(){
     $(this).parent().removeClass().addClass('day');
   }
 
-  //날짜출력 
+  //날짜출력 다음달로 넘기기 
   if(today > lastDate.getDate()){
     today = 1;
-    };
-
+    
+    if( month == 11 ){
+    	month = 0;
+    	year = year+1;
+    }
+    
+  }
+  	// a태그에 지금날짜 넣기 
+  	$(this).attr('data-date',year+"-"+(month+1)+"-"+today);
     $(this).children().last().text(today++);
 
   }); //each 끝
@@ -64,12 +71,11 @@ $(document).ready(function(){
       $a.parent().removeClass('on');
       $(this).parent().addClass('on');
 
-      // 날짜입력 필드에 선택된 날짜 movie_date 입력 (내년에 내년으로 넘어가는거 해야함...)      
+      // 날짜입력 필드에 선택된 날짜 movie_date 입력       
       var today = $(this).children().eq(1).text();
       $('input[name=movie_date]').val(year+'-'+(month+1)+'-'+today);
       
   });
-  
   
 
 

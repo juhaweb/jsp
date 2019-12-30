@@ -61,6 +61,17 @@ public class SQL {
 														+ "WHERE `schedule_date`=? AND `schedule_theater_no`=? AND `schedule_movie_no`=? " 
 														+ "ORDER BY `schedule_screen_no` ASC, `schedule_round_view` ASC; ";
 	
+	public static final String SELECT_REMAIN_SEAT_WITH_TOTAL = "SELECT COUNT(*) AS `total`, SUM(`ticket_is_valid`=1) `remain` "
+															+ "FROM `JC_TICKET` "
+															+ "WHERE "
+															+ "`ticket_movie_date`=? AND "
+															+ "`ticket_movie_no`=? AND "
+															+ "`ticket_theater_no`=? AND "
+															+ "`ticket_screen_no`=? "
+															+ "GROUP BY `ticket_round_view`;";
+	
+	
+	
 	// 영화관련
 	public static final String SELECT_POSTERS = "SELECT `movie_no`, `movie_title`,`movie_poster` FROM `JC_MOVIE` ORDER BY `movie_release_date` DESC LIMIT 10; ";
 	

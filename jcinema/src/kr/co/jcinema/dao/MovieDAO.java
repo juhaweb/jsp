@@ -63,7 +63,7 @@ public class MovieDAO {
 	
 	
 	// 영화관에서 상영중인 영화 선택시 상영 스케쥴 표시하기
-	public List<MovieScheduleVO> selectMovieRoundView(String schedule_date, String theater_no, String movie_no) throws Exception{
+	public List<List<MovieScheduleVO>> selectMovieRoundView(String schedule_date, String theater_no, String movie_no) throws Exception{
 		
 		Connection conn = DBConfig.getConnection();
 		
@@ -74,9 +74,21 @@ public class MovieDAO {
 		
 		ResultSet rs = psmt.executeQuery();
 		
-		List<MovieScheduleVO> movies = new ArrayList<>();
-		
+		List<List<MovieScheduleVO>> movieSchedules = new ArrayList<>();
+		List<MovieScheduleVO> movieSchedule = null;
+				
 		while(rs.next()) {
+			
+			// schedule_round_view 에서 7이후 8이 아니라 1이 나오니까.. 
+			if(rs.getInt(7) == 1) {
+				
+				if(movieSchedule != null) {
+					movieSchedules.add(movieSchedule);
+					}
+				
+				movieSchedule = new ArrayList<>();
+				
+			}		
 			
 			MovieScheduleVO msv = new MovieScheduleVO();
 			
@@ -88,16 +100,51 @@ public class MovieDAO {
 			msv.setSchedule_end_time(rs.getString(6));
 			msv.setSchedule_round_view(rs.getString(7));	
 			
-			movies.add(msv);
+			movieSchedule.add(msv);
 		}
 		
 		rs.close();
 		psmt.close();
 		conn.close();
 		
-		return movies;
+		return movieSchedules;
+		
+	}
+	
+											// 길다싶으면 세로쓰기 
+	public List<List<Integer>> selectRemainSeatWithTotal(String ticketMovieDate, 
+										  String ticketMovieNo, 
+										  String ticketTheaterNo,
+										  String ticketScreenNo ) throws Exception{
+		
+		Connection conn = DBConfig.getConnection();
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_REMAIN_SEAT_WITH_TOTAL);
+		psmt.setString(1, ticketMovieDate);
+		psmt.setString(2, ticketMovieNo);
+		psmt.setString(3, ticketTheaterNo);
+		psmt.setString(4, ticketScreenNo);
+		
+		ResultSet rs = psmt.executeQuery();
+		
+		List<List<Integer>> seats = new ArrayList<>();
 		
 		
+		while(rs.next()) {
+		
+			List<Integer> seat = new ArrayList<>();
+			
+			seat.add(rs.getInt(1));
+			seat.add(rs.getInt(2));
+			
+			seats.add(seat);
+			
+		}
+		
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return seats;
 	}
 	
 	
