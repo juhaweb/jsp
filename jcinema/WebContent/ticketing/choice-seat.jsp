@@ -67,15 +67,15 @@
         <div class="screen"><em>Screen</em></div>
         
         <article>
-          <ul>
+          <ul>                	
           	<c:forEach varStatus="status" var="voList" items="${seatList}">
-          		<li>
-          			<span class="tit">${setRow[status.index]}</span>
-          			<c:forEach varStatus="status" var="vo" items="${voList}">
-          				<a href="#" class="seat" data-seat="${vo.set_row}${vo.seat_column}" title="좌석A1">${status.count}</a>
-          			</c:forEach>
-          		</li>
-          	</c:forEach>
+               <li>
+					<span class="tit">${seatRow[status.index]}</span>
+					<c:forEach varStatus="status" var="vo" items="${voList}">
+						<a href="#" class="seat" data-seat="${vo.seat_row}${vo.seat_column}" title="좌석 A1">${status.count}</a>
+					</c:forEach>
+				</li>
+            </c:forEach>    
           </ul>
           
 

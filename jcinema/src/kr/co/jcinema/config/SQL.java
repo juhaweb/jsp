@@ -94,8 +94,7 @@ public class SQL {
 	
 	public static final String SELECT_MOVIE_SCHEDULE_WITH_THEATER = "SELECT a.*, b.theater_name, c.screen_name FROM `JC_MOVIE_SCHEDULE` AS a "
 																	+ "JOIN `JC_THEATER` AS b ON a.schedule_theater_no = b.theater_no "
-																	+ "JOIN `JC_SCREEN` AS c "
-																	+ "ON "
+																	+ "JOIN `JC_SCREEN` AS c ON "
 																	+ "a.schedule_theater_no = c.screen_theater_no AND "
 																	+ "a.schedule_screen_no = c.screen_no "
 																	+ "WHERE "

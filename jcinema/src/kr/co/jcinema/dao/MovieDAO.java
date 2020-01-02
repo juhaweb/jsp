@@ -185,7 +185,7 @@ public class MovieDAO {
 			mvo.setMovie_actor(rs.getString(15));
 			
 		}
-		
+		rs.close();
 		psmt.close();
 		conn.close();
 		
@@ -360,6 +360,7 @@ public class MovieDAO {
 		
 			
 		}
+		
 		rs.close();
 		psmt.close();
 		conn.close();
