@@ -70,9 +70,9 @@
           <ul>
           	<c:forEach varStatus="status" var="voList" items="${seatList}">
           		<li>
-          			<span class="tit">${status.count}</span>
-          			<c:forEach var="vo" items="${voList}">
-          				<a href="#" class="seat" data-seat="A1" title="좌석A1">${vo.seat_column}</a>
+          			<span class="tit">${setRow[status.index]}</span>
+          			<c:forEach varStatus="status" var="vo" items="${voList}">
+          				<a href="#" class="seat" data-seat="${vo.set_row}${vo.seat_column}" title="좌석A1">${status.count}</a>
           			</c:forEach>
           		</li>
           	</c:forEach>
@@ -111,7 +111,7 @@
   <section>
       <div class="back-and-pay">
           <a href="#">영화선택</a>
-          <a href="${path}/ticketing/order-confirm">일반결제</a>
+          <a href="#" class="do_pay">일반결제</a>
       </div>
   </section>
   <section>
@@ -119,11 +119,17 @@
           <div>
               <span>영화</span>
               <article>
-                  <img class="poster" src="../img/total_info_poster.jpg" alt="">
+                  <img class="poster" src="${path}/resource/poster/${mInfo.movie_poster}" alt="">
                   <p class="movie-info">
-                      <strong>겨울왕국2</strong>
-                      <b>2D</b>
-                      <em>전체관람가</em>
+                      <strong>${mInfo.movie_title}</strong>
+                      <b>${mInfo.movie_genre}</b>
+                      <em>
+                      	<c:if test="${mInfo.movie_grade == 0}">전체관람가</c:if>
+                      	<c:if test="${mInfo.movie_grade == 12}">12세 이상 관람가</c:if>
+                      	<c:if test="${mInfo.movie_grade == 15}">15세 이상 관람가</c:if>
+                      	<c:if test="${mInfo.movie_grade == 18}">18세 이상 관람가</c:if>
+                      	<c:if test="${mInfo.movie_grade == 19}">미성년자 관람불가</c:if>
+                      </em>
                   </p>
               </article>
               
@@ -133,23 +139,23 @@
               <table>
                   <tr>
                       <td>상영일</td>
-                      <td>2019-12-02(월)</td>
+                      <td>${mSchedule.schedule_date}</td>
                   </tr>
                   <tr>
                       <td>상영시간</td>
-                      <td>17:00 ~ 18:53</td>
+                      <td>${mSchedule.schedule_start_time.substring(0,5)} ~ ${mSchedule.schedule_end_time.substring(0,5)}</td>
                   </tr>
                   <tr>
                       <td>상영관</td>
-                      <td>오투(부산대)</td>
+                      <td>${mSchedule.theater_name}</td>
                   </tr>
                   <tr>
                       <td></td>
-                      <td>4관</td>
+                      <td>${mSchedule.screen_name}</td>
                   </tr>
                   <tr>
                       <td>좌석</td>
-                      <td>C5, C6</td>
+                      <td class="result_seat"></td>
                   </tr>
               </table>
               <h2>28,000<span>원</span></h2>

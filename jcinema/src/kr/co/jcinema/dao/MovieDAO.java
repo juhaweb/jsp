@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import kr.co.jcinema.admin.vo.MovieScheduleVO;
+import kr.co.jcinema.vo.MovieScheduleVO;
 import kr.co.jcinema.config.DBConfig;
 import kr.co.jcinema.config.SQL;
 import kr.co.jcinema.vo.MovieVO;
@@ -154,8 +154,46 @@ public class MovieDAO {
 	
 	
 	
+	// 좌석선택 넘어가기전에..  영화선택을하겠다. 
+	public MovieVO selectMovie(String movie_no) throws Exception{
+		
+		Connection conn = DBConfig.getConnection();
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_MOVIE);
+		
+		ResultSet rs = psmt.executeQuery();
+		
+		MovieVO mvo = null;
+
+		if(rs.next()) {
+			
+			mvo = new MovieVO();
+			
+			mvo.setMovie_no(rs.getInt(1));
+			mvo.setMovie_title(rs.getString(2));
+			mvo.setMovie_grade(rs.getString(3));
+			mvo.setMovie_company(rs.getString(4));
+			mvo.setMovie_score(rs.getDouble(5));
+			mvo.setMovie_ticket_rate(rs.getDouble(6));
+			mvo.setMovie_release_date(rs.getString(7));
+			mvo.setMovie_genre(rs.getString(8));
+			mvo.setMovie_country(rs.getString(9));
+			mvo.setMovie_running_time(rs.getInt(10));
+			mvo.setMovie_homepage(rs.getString(11));
+			mvo.setMovie_poster(rs.getString(12));
+			mvo.setMovie_desc(rs.getString(13));
+			mvo.setMovie_director(rs.getString(14));
+			mvo.setMovie_actor(rs.getString(15));
+			
+		}
+		
+		psmt.close();
+		conn.close();
+		
+		return mvo;
+		
+	}
 	
-	public void selectMovie() throws Exception{}
+	
 	public void insertMovie() throws Exception{}
 	public void updateMovie() throws Exception{}
 	public void deleteMovie() throws Exception{}
@@ -283,6 +321,60 @@ public class MovieDAO {
 		return list;
 		
 	}
+	
+	
+	
+	// 좌석선택 하단에 선택영화 출력용 
+	public MovieScheduleVO selectMovieScheduleWithTheater(String movieNo,
+											   String theaterNo,
+											   String screenNo,
+											   String movieDate,
+											   String roundView ) throws Exception {
+
+		Connection conn = DBConfig.getConnection();
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_MOVIE_SCHEDULE_WITH_THEATER);
+		
+		psmt.setString(1, movieNo);
+		psmt.setString(2, theaterNo);
+		psmt.setString(3, screenNo);
+		psmt.setString(4, movieDate);
+		psmt.setString(5, roundView);
+		
+		ResultSet rs = psmt.executeQuery();
+				
+		MovieScheduleVO msvo = null;
+		
+		if(rs.next()) {
+			
+			msvo = new MovieScheduleVO();
+			
+			msvo.setSchedule_theater_no(rs.getString(1));
+			msvo.setSchedule_screen_no(rs.getString(2));
+			msvo.setSchedule_movie_no(rs.getString(3));
+			msvo.setSchedule_date(rs.getString(4));
+			msvo.setSchedule_start_time(rs.getString(5));
+			msvo.setSchedule_end_time(rs.getString(6));
+			msvo.setSchedule_round_view(rs.getString(7));
+			msvo.setTheater_name(rs.getString(8));
+			msvo.setScreen_name(rs.getString(9));
+		
+			
+		}
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return msvo;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

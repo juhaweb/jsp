@@ -50,6 +50,8 @@ public class SQL {
 	
 	
 	// 예매관련(티켓)
+	public static final String SELECT_MOVIE = "SELECT * FROM `JC_MOVIE` WHERE `movie_no`=?; ";
+	
 	public static final String SELECT_MOVIES_BY_THEATER = "SELECT * FROM `JC_MOVIE_SCHEDULE` AS a " 
 		 												+ "JOIN `JC_MOVIE` AS b "
 														+ "ON a.schedule_movie_no = b.movie_no " 
@@ -90,24 +92,19 @@ public class SQL {
 	// 영화관련
 	public static final String SELECT_POSTERS = "SELECT `movie_no`, `movie_title`,`movie_poster` FROM `JC_MOVIE` ORDER BY `movie_release_date` DESC LIMIT 10; ";
 	
-	
+	public static final String SELECT_MOVIE_SCHEDULE_WITH_THEATER = "SELECT a.*, b.theater_name, c.screen_name FROM `JC_MOVIE_SCHEDULE` AS a "
+																	+ "JOIN `JC_THEATER` AS b ON a.schedule_theater_no = b.theater_no "
+																	+ "JOIN `JC_SCREEN` AS c "
+																	+ "ON "
+																	+ "a.schedule_theater_no = c.screen_theater_no AND "
+																	+ "a.schedule_screen_no = c.screen_no "
+																	+ "WHERE "
+																	+ "a.schedule_movie_no=? AND "
+																	+ "a.schedule_theater_no=? AND "
+																	+ "a.schedule_screen_no=? AND "
+																	+ "a.schedule_date=? AND "
+																	+ "a.schedule_round_view=? ;";
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

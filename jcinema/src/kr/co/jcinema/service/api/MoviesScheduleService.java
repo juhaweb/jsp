@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import kr.co.jcinema.admin.vo.MovieScheduleVO;
+import kr.co.jcinema.vo.MovieScheduleVO;
 import kr.co.jcinema.controller.CommonService;
 import kr.co.jcinema.dao.MovieDAO;
 
