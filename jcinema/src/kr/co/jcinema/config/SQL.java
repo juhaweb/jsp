@@ -70,6 +70,21 @@ public class SQL {
 															+ "`ticket_screen_no`=? "
 															+ "GROUP BY `ticket_round_view`;";
 	
+	public static final String SELECT_SEAT = "SELECT * FROM `JC_SEAT` AS a "
+											+ "JOIN `JC_TICKET` AS b ON CONCAT(a.seat_row, a.seat_column) = b.ticket_seat "
+											+ "WHERE "
+											+ "`seat_theater_no`=? AND "
+											+ "`seat_screen_no`=? AND "
+											+ "b.`ticket_screen_no`=? AND "
+											+ "b.`ticket_movie_no` =? AND "
+											+ "b.`ticket_movie_date` =? AND "
+											+ "b.`ticket_round_view` =? ;";
+
+	public static final String SELECT_SEAT_TOTAL_BY_ROW = "SELECT *, COUNT(`seat_row`) AS `row_total` FROM `JC_SEAT` "
+														+ "WHERE "
+														+ "`seat_theater_no` = ? AND "
+														+ "`seat_screen_no` = ? "
+														+ "GROUP BY `seat_row`;";
 	
 	
 	// 영화관련

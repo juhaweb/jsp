@@ -143,9 +143,9 @@
           
           <p class="nodata">상영시간이 조회되지 않았습니다. </p>
           
-          <ul class="round_view">
-          </ul>
-          
+          <div>
+          </div>
+         
         </section>               
       </article>
     </div>

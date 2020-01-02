@@ -86,8 +86,8 @@ $(document).ready(function(){
 					 "theater_no": schedule_theater_no, 
 					 "movie_no": movie_no}; 
 		
-		var showtime_round_view	= $('.showtime .round_view');
-		var showtime_nodata		= $('.showtime .nodata');
+		var showtime_section_div	= $('.showtime > article > section > div');
+		var showtime_nodata			= $('.showtime .nodata');
 		
 		
 		$.get(url, param, function(data){
@@ -95,29 +95,60 @@ $(document).ready(function(){
 			if(data.length > 0){
 				//데이터가 있을때 .nodata 삭제 
 				showtime_nodata.remove();
-				showtime_round_view.empty();
- 
-			$.each(data,function(i,obj){
-				 
-				if(obj.schedule)
-				showtime_round_view.append("<li>" +
-											"<a href='#'>"+
-											"<span>"+obj.schedule_round_view+"회차</span>"+
-											"<span>"+obj.schedule_start_time.substring(0,5)+" ~ "+obj.schedule_end_time.substring(0,5)+"</span>"+
-											"<span><em>24</em>석/<em>80</em>석</span>"+
-											"</a>" +
-											"</li>"
-											);
+				showtime_section_div.empty();
 				
-				
-			});	
+				// 왜 이중포문이냐면 관별 회차가 다르기 때문에 
+				for(var a=0; a<data.length; a++){
+
+					showtime_section_div.append("<ul class='round_view'></ul>");
+					
+					var dataObj = data[a];
+					
+					for(var b=0; b<dataObj.length; b++){
+						
+						showtime_section_div.children().last().append("<li>" +
+																	  "<a href='#' data-theater-no='"+dataObj[b].schedule_theater_no+
+																	  "'data-screen-no='"+dataObj[b].schedule_screen_no+
+																	  "' data-movie-no='"+dataObj[b].schedule_movie_no+
+																	  "' data-movie-date='"+dataObj[b].schedule_date+
+																	  "' data-round-view='"+dataObj[b].schedule_round_view+"' >"+
+																	  "<span>"+dataObj[b].schedule_round_view+"회차</span>"+
+																  	  "<span>"+dataObj[b].schedule_start_time.substring(0,5)+" ~ "+dataObj[b].schedule_end_time.substring(0,5)+"</span>"+
+																  	  "<span><em>24</em>석/<em>80</em>석</span>"+
+																	  "</a>" + 
+																	  "</li>"
+						);
+						
+					}
+					
+					
+				}
 				
 			}
 			
 		});
+		// json 종료
+		
+	});
+	// 동적이벤트 종료
+	
+	
+	
+	// 영화상영일정 클릭 (동정이벤트 또 생성)
+	$(document).on('click','.round_view > li > a', function(e){
+		e.preventDefault();
+		
+		var theater_no = $(this).attr('data-theater-no');
+		var screen_no = $(this).attr('data-screen-no');
+		var movie_date = $(this).attr('data-movie-no');
+		var movie_no = $(this).attr('data-movie-date');
+		var round_view = $(this).attr('data-round-view');		
+		
+		location.href='/jcinema/ticketing/choice-seat?theater_no='+theater_no+'&screen_no='+screen_no+'&movie_date='+movie_date+'&movie_no='+movie_no+'&round_view='+round_view ;
 		
 		
 	});
+	
 	
 	
 

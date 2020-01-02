@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.co.jcinema.admin.vo.MovieScheduleVO;
 import kr.co.jcinema.config.DBConfig;
 import kr.co.jcinema.config.SQL;
 import kr.co.jcinema.vo.MovieVO;
+import kr.co.jcinema.vo.SeatVO;
 
 public class MovieDAO {
 	
@@ -23,12 +26,7 @@ public class MovieDAO {
 
 	private MovieDAO() {}
 
-	
 
-	
-	
-	
-	
 
 	// 영화관에서 상영중인 영화들만.. > api.MoviesService
 	public List<MovieVO> selectMovies(String theater_no, String schedule_date) throws Exception{
@@ -59,6 +57,7 @@ public class MovieDAO {
 		return movies;
 		
 	}
+	
 	
 	
 	
@@ -103,6 +102,9 @@ public class MovieDAO {
 			movieSchedule.add(msv);
 		}
 		
+		// 마지막 상영관의 영화 상영표 추가하기 (위에선 7이후 8이 아니라 1이 안와서.. 추가를 못함) 
+		movieSchedules.add(movieSchedule);
+		
 		rs.close();
 		psmt.close();
 		conn.close();
@@ -111,12 +113,15 @@ public class MovieDAO {
 		
 	}
 	
-											// 길다싶으면 세로쓰기 
+	
+	
+	
+	// 영화관에서 상영중인 영화 선택시 상영 스케쥴 표시 이후 좌석 토탈 구해서 표시 choice-movie.jsp	
 	public List<List<Integer>> selectRemainSeatWithTotal(String ticketMovieDate, 
 										  String ticketMovieNo, 
 										  String ticketTheaterNo,
 										  String ticketScreenNo ) throws Exception{
-		
+											// 길다싶으면 세로쓰기 
 		Connection conn = DBConfig.getConnection();
 		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_REMAIN_SEAT_WITH_TOTAL);
 		psmt.setString(1, ticketMovieDate);
@@ -148,6 +153,8 @@ public class MovieDAO {
 	}
 	
 	
+	
+	
 	public void selectMovie() throws Exception{}
 	public void insertMovie() throws Exception{}
 	public void updateMovie() throws Exception{}
@@ -156,12 +163,7 @@ public class MovieDAO {
 	
 	
 	
-	
-	
-	
-	
-	// ★ 포스터 선택 (메인 좌롤링배너 10개)
-	
+	// 포스터 선택 (메인 좌롤링배너 10개)	
 	public List<MovieVO> selectPosters() throws Exception {
 		
 		Connection conn = DBConfig.getConnection();
@@ -190,6 +192,97 @@ public class MovieDAO {
 	
 	
 	
+	// 좌석선택	
+	public List<List<SeatVO>> selectSeat( String theaterNo,
+											String screenNo,
+											String movieDate,
+											String movieNo,
+											String roundView ) throws Exception{
+		
+		Connection conn = DBConfig.getConnection();
+		
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_SEAT);
+		
+		psmt.setString(1,  theaterNo);
+		psmt.setString(2,  screenNo);
+		psmt.setString(3,  screenNo);
+		psmt.setString(4,  movieNo);
+		psmt.setString(5,  movieDate);
+		psmt.setString(6,  roundView);
+		
+		ResultSet rs = psmt.executeQuery();
+		
+		List<List<SeatVO>>	list1 = new ArrayList<>();
+		List<SeatVO>		list2 = null;
+		
+		// 여기서는 로직이 들어가는게 안좋음. 데이터 빨리받아서 빨리 넘겨줘. 
+		while(rs.next()) {
+			
+			if(rs.getInt(4) == 1) {
+				
+				if(list2 != null){
+						list1.add(list2);
+					}
+				
+				list2 = new ArrayList<>();
+			} 
+			
+			SeatVO svo = new SeatVO();
+			svo.setSeat_theater_no(rs.getString(1));
+			svo.setSeat_screen_no(rs.getString(2));
+			svo.setSeat_row(rs.getString(3));
+			svo.setSeat_column(rs.getString(4));
+			svo.setTicket_is_valid(rs.getString(5));
+			
+			list2.add(svo);
+		}
+		
+		list1.add(list2);
+		
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return list1;
+	}
+	
+	
+	
+	
+	
+	public List<SeatVO> selectSeatTotalByRow (String theaterNo,	String screenNo ) throws Exception{
+
+		Connection conn = DBConfig.getConnection();
+		
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_SEAT_TOTAL_BY_ROW);
+		
+		psmt.setString(1,  theaterNo);
+		psmt.setString(2,  screenNo);
+
+		ResultSet rs = psmt.executeQuery();
+		
+		List<SeatVO> list = new ArrayList<>();
+		
+		// 여기서는 로직이 들어가는게 안좋음. 데이터 빨리받아서 빨리 넘겨줘. 
+		while(rs.next()) {
+		
+		SeatVO svo = new SeatVO();
+			svo.setSeat_theater_no(rs.getString(1));
+			svo.setSeat_screen_no(rs.getString(2));
+			svo.setSeat_row(rs.getString(3));
+			svo.setSeat_column(rs.getString(4));
+			svo.setTicket_is_valid(rs.getString(5));
+			
+			list.add(svo);
+		}
+		
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return list;
+		
+	}
 	
 	
 	
