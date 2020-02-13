@@ -5,11 +5,10 @@ import java.sql.DriverManager;
 
 public class DBConfig {
 
-	// DB정보
-	private static final String HOST = "jdbc:mysql://192.168.44.3/hju";
-	private static final String USER = "hju";
-	private static final String PASS = "1234";
-	
+	/* DB정보 */
+	private static final String HOST = "jdbc:mysql://35.197.177.190/hju";
+	private static final String USER = "root";
+	private static final String PASS = "juha66^^^";
 		
 	public static Connection getConnection() throws Exception {
 		
